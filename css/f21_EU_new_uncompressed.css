@@ -1,810 +1,1580 @@
-/*
-  * Forever21 EU v1.1.1 7/6/2018 - Version 1
-  * Copyright Forever21
-  * Created by Elisha Lee
-  * Updated by Joanne Kim
-*/
-/*#taco *,#taco body,#taco button,#taco a {
-  cursor: url("/eu/shop/_common/images/TacoCursor.cur"), auto !important;
-}*/
-@font-face{
-  font-family:"Trade Gothic W01 BoldCn_20";
-  src:url("/eu/shop/_common/images/fonts/tradegothic/257c802f-349c-4b4d-aefa-546d5de15ec6.eot");
-  src:url("/eu/shop/_common/images/fonts/tradegothic/257c802f-349c-4b4d-aefa-546d5de15ec6.eot?#iefix") format("embedded-opentype"),
-  url("/eu/shop/_common/images/fonts/tradegothic/257c802f-349c-4b4d-aefa-546d5de15ec6.eot?#iefix") format("eot"),
-  url("/eu/shop/_common/images/fonts/tradegothic/1ba28851-f34b-4cb8-bf58-6a4b160ba249.woff2") format("woff2"),
-  url("/eu/shop/_common/images/fonts/tradegothic/5fdc935e-9e30-442a-bbe9-8d887b858471.woff") format("woff"),
-  url("/eu/shop/_common/images/fonts/tradegothic/616c4c87-a077-43f4-a9f4-f01267c13818.ttf") format("truetype"),
-  url("/eu/shop/_common/images/fonts/tradegothic/c901ad5f-a842-4549-a1f4-583a97f7e169.svg#c901ad5f-a842-4549-a1f4-583a97f7e169") format("svg");
-}
-@font-face{
-  font-family:"Futura W05_n2";
-  src:url("/eu/shop/_common/images/fonts/futura/c309626c-3df7-4b5a-88fd-2a77fbacb89d.eot?#iefix") format("eot")
-}
-@font-face{
-  font-family:"Futura W05";
-  src:url("/eu/shop/_common/images/fonts/futura/c309626c-3df7-4b5a-88fd-2a77fbacb89d.eot?#iefix");
-  src:url("/eu/shop/_common/images/fonts/futura/c309626c-3df7-4b5a-88fd-2a77fbacb89d.eot?#iefix") format("eot"),
-  url("/eu/shop/_common/images/fonts/futura/bd49d6fe-4284-4789-8a0f-77d20a47ffc1.woff2") format("woff2"),
-  url("/eu/shop/_common/images/fonts/futura/2957f570-9f18-4264-bfe5-49c5e4912066.woff") format("woff"),
-  url("/eu/shop/_common/images/fonts/futura/656c426a-25df-43fc-9a8a-90e98c58400c.ttf") format("truetype"),
-  url("/eu/shop/_common/images/fonts/futura/43e9080e-6f1a-4e7c-8fa8-8f837c5b3a27.svg#43e9080e-6f1a-4e7c-8fa8-8f837c5b3a27") format("svg");
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face{
-  font-family:"Futura W05_n5";
-  src:url("/eu/shop/_common/images/fonts/futura/28223bee-779a-414b-a7a3-a6afeeac3146.eot?#iefix") format("eot")
-}
-@font-face{
-  font-family:"Futura W05";
-  src:url("/eu/shop/_common/images/fonts/futura/28223bee-779a-414b-a7a3-a6afeeac3146.eot?#iefix");
-  src:url("/eu/shop/_common/images/fonts/futura/28223bee-779a-414b-a7a3-a6afeeac3146.eot?#iefix") format("eot"),
-  url("/eu/shop/_common/images/fonts/futura/55ed9b50-6dd3-4d1d-83f9-b86d944b92f8.woff2") format("woff2"),
-  url("/eu/shop/_common/images/fonts/futura/9b5a5fd6-0255-45f5-9235-436ca9ca503a.woff") format("woff"),
-  url("/eu/shop/_common/images/fonts/futura/e733fa7f-f1a5-4b16-9b19-7cf64cc121b2.ttf") format("truetype"),
-  url("/eu/shop/_common/images/fonts/futura/d88cecc7-49c4-4576-b40a-977000258f17.svg#d88cecc7-49c4-4576-b40a-977000258f17") format("svg");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face{
-  font-family:"Futura W05_n4";
-  src:url("/eu/shop/_common/images/fonts/futura/a411c21e-f439-48c1-bddb-887ec08b5224.eot?#iefix") format("eot")
-}
-@font-face{
-  font-family:"Futura W05";
-  src:url("/eu/shop/_common/images/fonts/futura/a411c21e-f439-48c1-bddb-887ec08b5224.eot?#iefix");
-  src:url("/eu/shop/_common/images/fonts/futura/a411c21e-f439-48c1-bddb-887ec08b5224.eot?#iefix") format("eot"),
-  url("/eu/shop/_common/images/fonts/futura/7a337894-f253-4a5d-a63e-0d8275cedec5.woff2") format("woff2"),
-  url("/eu/shop/_common/images/fonts/futura/55e6a203-1f50-4971-89d0-17ca0150f29d.woff") format("woff"),
-  url("/eu/shop/_common/images/fonts/futura/feaf9b77-0958-45fa-96c3-1afc445987ef.ttf") format("truetype"),
-  url("/eu/shop/_common/images/fonts/futura/e15d89fd-44ef-431b-a26e-c80880e967c3.svg#e15d89fd-44ef-431b-a26e-c80880e967c3") format("svg");
-  font-weight: 400;
-  font-style: normal;
-}
-.t_trade {
-  font-family: "Trade Gothic W01 BoldCn_20",Arial,Helvetica,sans-serif;
-}
-.t_futura {
-  font-family:"Futura W05_n2",Helvetica,Arial,sans-serif;
-}
-.t_futura_light {
-  font-family:"Futura W05",Helvetica,Arial,sans-serif;
-}
-.t_futura_bold {
-  font-family: "Futura W05_n5",Helvetica,Arial,sans-serif;
-  font-weight: 900;
-}
-/* ============================== */
-/* Loading Code                   */
-/*================================*/
-.item_loading > span {
-  position: relative;
-  top: 40%;
-  left: 40%;
-  background:url("/eu/shop/_common/images/loading.gif") center center no-repeat #D1E6E4;
-  background-size: 100%;
-  z-index: 9;
-  width: 20%;
-  height: 15%;
-  min-width: 50px;
-  min-height: 50px;
-  /*-webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.58);
-  -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.58);
-  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.58);*/
-}
-/* ============================== */
-/* Select Country & Language Code */
-/*================================*/
-/*#lang {
-  background:#cee2e8 no-repeat center top;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: table;
-  text-align: center;
-}*/
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+	<head>
+		<!--[if lt IE 9]>
+	    <div class="ie_warning"><div>Forever21.com is not optimized for Internet Explorer 8. <br/>Use another browser or upgrade here: <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank" class="t_pink underline">http://windows.microsoft.com/en-us/internet-explorer/download-ie</a></div></div>
+		<![endif]-->
+		<title>Forever 21</title>
+		<meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=9">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    	<meta name="author" content="Forever21">
+	    <meta name="apple-mobile-web-app-title" content="Forever 21">
+		<meta name="Description" content="Forever21.com offers the most current fashions for women and men.  Shop Forever21.com and find the best selection of fashion tops, dresses, denim, shoes, accessories, jewelery, lingerie, 21 special items, and more!">
+		<meta name="Keywords" content="clothes, clothing, apparel, casual tops, dressy tops, basics, skirts, dress, dresses, sale, fashion, cheap, tees, tank tops, graphics, shirts, pants, jeans, shorts, sweaters, outerwear, jackets, tops, bottoms, skirts, shoes, halter, tube top, denim, jewelery, accessories, rings, necklaces, underwear, mens, womens, woman, junior fashion, xxi, forlove, gadzooks, womens apparel, intimate, handbags, sunglasses, hats, scarves, hair goods, earrings">
+		<link rel="shortcut icon" href="http://www.forever21.com/images/en/common/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon-precomposed" href="http:http://www.forever21.com/images/en/common/apple-touch-icon-144x144-precomposed.png">
+		<link rel="stylesheet" type="text/css" href="css/f21_style.css">
+		<link rel="stylesheet" type="text/css" href="css/f21_EU.css">
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/f21_js.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.js"></script>
+		<script type="text/javascript" src="js/jquery.tiny-layer.js"></script>
+	</head>
+	<body>
+		<!-- Mobile Left S -->
+		<div class="l_container hide_desktop">
+			<div class="nav_primary">
+				<div class="col_s_10_of_10 mobile_myaccount show_both">
+					<div class="col_s_7_of_10">
+						<a href="#"><span class="icon_signin" title="sign in"></span>
+						<span>Hello, Elisha</span></a>
+					</div>
+					<div class="col_s_3_of_10 txr">
+						<a href="#" class="underline t_normal">Sign out</a>
+					</div>
+				</div>
+			</div>
+			<nav>
+				<div class="mega_menu"><span>WOMEN</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">New Arrivals</a></li>
+										<li><a href="#">Makeup</a></li>
+										<li><a href="#">Skin Care</a></li>
+										<li><a href="#">Hair</a></li>
+										<li><a href="#">Nails</a></li>
+										<li><a href="#">Fragrance + Lotion</a></li>
+										<li><a href="#">Tools + Accessories</a></li>
+										<li><a href="#">K Beauty</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu"><span>PLUS SIZE</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">New Arrivals</a></li>
+										<li><a href="#">Makeup</a></li>
+										<li><a href="#">Skin Care</a></li>
+										<li><a href="#">Hair</a></li>
+										<li><a href="#">Nails</a></li>
+										<li><a href="#">Fragrance + Lotion</a></li>
+										<li><a href="#">Tools + Accessories</a></li>
+										<li><a href="#">K Beauty</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu"><span>MEN</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">New Arrivals</a></li>
+										<li><a href="#">Makeup</a></li>
+										<li><a href="#">Skin Care</a></li>
+										<li><a href="#">Hair</a></li>
+										<li><a href="#">Nails</a></li>
+										<li><a href="#">Fragrance + Lotion</a></li>
+										<li><a href="#">Tools + Accessories</a></li>
+										<li><a href="#">K Beauty</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu"><span>GIRLS</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub expand_c">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">New Arrivals</a></li>
+										<li><a href="#">Makeup</a></li>
+										<li><a href="#">Skin Care</a></li>
+										<li><a href="#">Hair</a></li>
+										<li><a href="#">Nails</a></li>
+										<li><a href="#">Fragrance + Lotion</a></li>
+										<li><a href="#">Tools + Accessories</a></li>
+										<li><a href="#">K Beauty</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu"><span>BEAUTY</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">Features</a></li>
+										<li><a href="#">New Arrivals</a></li>
+										<li><a href="#">Makeup</a></li>
+										<li><a href="#">Skin Care</a></li>
+										<li><a href="#">Hair</a></li>
+										<li><a href="#">Nails</a></li>
+										<li><a href="#">Fragrance + Lotion</a></li>
+										<li><a href="#">Tools + Accessories</a></li>
+										<li><a href="#">K Beauty</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+			</nav>
+			<!-- Second Menu S -->
+			<nav class="show_both">
+				<div class="mega_menu second_menu"><span>COUNTRY : HONG KONG</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">United States</a></li>
+										<li><a href="#">Canada</a></li>
+										<li><a href="#">United Kingdom</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu second_menu"><span>LANGUAGE : ENGLISH</span>
+					<!-- Submenu Option Left Start -->
+					<div class="mega_sub">
+						<div class="col_s_10_of_10">
+							<dl>
+								<dd>
+									<ul>
+										<li><a href="#">English</a></li>
+										<li><a href="#">Korean</a></li>
+										<li><a href="#">Chineses</a></li>
+										<li><a href="#">Japaneses</a></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<!-- Submenu Option Left End -->
+				</div>
+				<div class="mega_menu second_menu"><span>GIFT CARD</span></div>
+				<div class="mega_menu second_menu"><span>TRACK ORDER</span></div>
+				<div class="mega_menu second_menu"><span>HELP</span></div>
+				<div class="mega_menu second_menu"><span>FIND A STORE</span></div>
+			</nav>
+			<!-- Second Menu E -->
+		</div>
+		<!-- Mobile Left E -->
+		
+		<!-- Right Slider S -->
+		<div class="desktop_overlay"></div>
+		<!-- View Item S -->
+		<div class="r_container">
+			<span class="icon_close"></span>
+			<div class="quick col_s_9_of_10 col_m_9_of_12 col_l_12_of_16 fc">
+        		<!-- Product S -->
+        		<div class="container row pt_20 p_left">
+        			<div class="col_s_10_of_10 col_m_10_of_12 col_l_13_of_16"><img src="http://www.forever21.com/images/default_330/00084912-01.jpg"></div>
+	        		<div class="col_m_2_of_12 col_l_3_of_16 pl_10 hide_mobile">
+        				<ul>
+        					<li><a href="#"><img src="http://www.forever21.com/images/default_330/00084912-01.jpg"></a></li>
+        					<li><a href="#"><img src="http://www.forever21.com/images/default_330/00084912-01.jpg"></a></li>
+        					<li><a href="#"><img src="http://www.forever21.com/images/default_330/00084912-01.jpg"></a></li>
+        				</ul>
+        			</div>
+        		</div>
+        		<!-- Product E -->
+        		<!-- Details S -->
+        		<div class="container row pt_20 p_right">
+        			<div>
+	        			<p class="p_name">Raw-Cut Eagle Graphic Tee</p>
+						<p class="p_price">$54.00</p>
+					</div>
+					<div class="ws_100 swatch">
+						<ul class="color">
+							<li><a href="#"><span class="selected"><img src="http://www.forever21.com/images/sw_22/00322877-02.jpg"></span></a></li>
+							<li><a href="#"><span><img src="http://www.forever21.com/images/sw_22/00206822-06.jpg"></span></a></li>
+						</ul>
+						<p class="pt_10">Dusty Lavender</p>
+						<ul class="pt_10 pb_10 size">
+							<li><span class="oos">XS</span></li>
+							<li><a href="#"><span>S</span></a></li>
+							<li><a href="#"><span>M</span></a></li>
+							<li><a href="#"><span>L</span></a></li>
+							<li><a href="#"><span>XL</span></a></li>
+						</ul>
+						<!-- Qty S -->
+						<fieldset class="pt_10">
+							<div class="input_label focus">
+								<div class="show_mobile select col_s_10_of_10 pb_10">
+									<label>QTY : 1</label>
+									<select class="ws_100">
+										<option>QTY : 1</option>
+										<option>QTY : 2</option>
+									</select>
+								</div>
+								<div class="col_m_8_of_12 col_l_8_of_16 txl hide_mobile"><span class="drop_p"><span class="arrow_down ws_100"><label>QUANTITY</label><p class="pt_10">QTY : 1</p></span></span>
+								<div class="drop_c b_gray">
+										<dl>
+											<dd><span>QTY : 1</span></dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+						<!-- Qty E -->
+					</div>
+					<button class="bg_black ws_100 pa_15">Update</button>
+					<p class="pt_20 t_small txc"><a href="#" class="underline">Delete</a></p>
+        		</div>
+        		<!-- Details E -->
+        	</div>
+		</div>
+		<!-- View Item E -->
+		<!-- Right Slider E -->
+		
+		<!-- Shipping S -->
+		<div class="r_container">
+			<span class="icon_close"></span>
+			<div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+        		<!-- Product S -->
+        		<div class="col_s_10_of_10 col_m_12_of_12 col_l_16_of_16 pt_20">
+        			<div class="ttl_header t_bold pb_10">NEW ADDRESS</div>
+        			<fieldset>
+        				<!-- Country S -->
+        				<div class="input_label focus">
+        					<div class="show_mobile select col_s_10_of_10">
+								<label>COUNTRY</label>
+								<select class="ws_100">
+									<option>Select</option>
+									<option>Hong Kong</option>
+									<option>Unite States</option>
+								</select>
+							</div>
+	        				<div class="col_m_12_of_12 col_l_16_of_16 txl hide_mobile"><span class="drop_p"><span class="arrow_down ws_100"><label>COUNTRY</label><p class="pt_10">Hong Kong</p></span>
 
-.lang_bg {
-  background:#D1E6E4;
-}
-#lang select {
-  background: url("https://www.forever21.com/images/f21/eu/icon_down.svg") #fff no-repeat 96% 50%;
-  background-size: 13px;
-  float: left;
-}
-/* ============================== */
-/* Header Code                    */
-/*================================*/
-.logo {
-  background: url("https://www.forever21.com/images/f21/eu/f21_logo_black.svg") no-repeat;
-  background-position: bottom center;
-  background-size: contain;
-  display: block;
-  position: relative;
-  width: 120px;
-  height: 22px;
-  float:none;
-  margin: auto;
-  z-index: 8;
-}
-.logo.white {
-  background: url("https://www.forever21.com/images/f21/eu/f21_logo_white.svg") no-repeat;
-  background-position: bottom left;
-  height: 26px;
-}
+								<div class="drop_c b_gray">
+									<dl>
+										<dd><a href="#">Hong Kong</a></dd>
+										<dd><a href="#">Unite States</a></dd>
+									</dl>
+								</div>
+								</span>
+							</div>
+						</div>
+						<!-- Country E -->
+	    				<div class="input_label focus">
+	    					<a href="#" class="icon_delete"></a>
+	    					<input type="text" value="Elisha">
+	    					<label>FIRST NAME</label>
+	    				</div>
+	    				<div class="input_label focus">
+	    					<a href="#" class="icon_delete"></a>
+	    					<input type="text" value="Lee">
+	    					<label>LAST NAME</label>
+	    				</div>
+	    				<div class="input_label">
+	    					<input type="tel">
+	    					<label>PHONE NUMBER</label>
+	    				</div>
+	    				<div class="input_label">
+	    					<input type="text">
+	    					<label>ADDRESS</label>
+	    				</div>
+	    				<div class="input_label">
+	    					<input type="text">
+	    					<label>ADDRESS 2 (optional)</label>
+	    				</div>
+	    				<!-- State S -->
+        				<div class="input_label focus">
+        					<div class="show_mobile select col_s_10_of_10">
+								<label>COUNTRY</label>
+								<select class="ws_100">
+									<option>Select</option>
+									<option>Alabama</option>
+									<option>Unite States</option>
+								</select>
+							</div>
+	        				<div class="col_m_12_of_12 col_l_16_of_16 txl hide_mobile"><span class="drop_p"><span class="arrow_down ws_100"><label>STATE</label><p class="pt_10">Select</p></span></span>
+	        				<div class="drop_c b_gray">
+									<dl>
+										<dd><span>Alabama</span></dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+						<!-- State E -->
+	    				<div class="input_label wm_50 pr_10">
+	    					<input type="text">
+	    					<label>CITY</label>
+	    				</div>
+	    				<div class="input_label wm_50">
+	    					<input type="text">
+	    					<label>POSTAL CODE</label>
+	    				</div>
+	    				<button class="bg_black ws_100 btn_big">Save</button>
+        			</fieldset>
+        		</div>
+        		<!-- Product E -->
+        	</div>
+        	<!-- Verify Address S -->
+        	<div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+        		<!-- Product S -->
+        		<div class="container row pt_20">
+        			<div class="ttl_header t_bold pb_10">VERIFY ADDRESS</div>
+    				<!-- Address S -->
+					<div class="ws_100">
+						<!-- User Entered S -->
+						<div class="pt_10 pb_20 hp_subtitle">
+							<div class="row ws_100 p_relative pb_20">
+								<p class="ttl_header t_bold pb_10">YOU ENTERED</p>
+								<ul>
+									<li>Elisha Lee</li>
+									<li>3880 n mission rd rm 3090<br/>Los Angeles<br/>CA 90031</li>
+									<li>United States</li>
+									<li>123456789</li>
+								</ul>
+								<p class="pt_20"><button class="bg_black">Use this</button> <button class="bg_yellow">Edit</button></p>
+							</div>
+						</div>
+						<!-- User Entered E -->
+						<!-- Recommend S -->
+						<div class="pt_10 pb_20 hp_subtitle">
+							<div class="row ws_100 p_relative pb_20">
+								<p class="ttl_header t_bold pb_10">RECOMMENDATION</p>
+								<ul class="t_pink">
+									<li>Elisha Lee</li>
+									<li>3880 n mission rd rm 3090<br/>Los Angeles<br/>CA 90031</li>
+									<li>United States</li>
+									<li>123456789</li>
+								</ul>
+								<p class="pt_20"><button class="bg_pink t_white">Use this</button></p>
+							</div>
+						</div>
+						<!-- Recommend E -->
+					</div>
+					<!-- Address E -->
+        		</div>
+        		<!-- Product E -->
+        	</div>
+        	<!-- Verify Address E -->
+		</div>
+        <!-- Shipping E -->
+        
 
-.icon_close {
-  background: url("/eu/shop/_common/images/icon_close.png") no-repeat center right;
-  width: 15px !important;
-  height: 15px !important;
-  opacity: 1 !important;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 999;
-  font-size: .5em;
-}
-.icon_menu {
-  background: url("https://www.forever21.com/images/f21/eu/top_menu.svg") no-repeat bottom left;
-  margin-right: 1.5em;
-}
-.icon_search {
-  background: url("https://www.forever21.com/images/f21/eu/top_search.svg") no-repeat bottom left;
-}
-.icon_cart {
-  background: url("https://www.forever21.com/images/f21/eu/top_cart.svg") no-repeat bottom left;
-  margin-left: 1.5em;
-}
-.icon_wishlist {
-  background: url("https://www.forever21.com/images/f21/eu/top_wishlist.svg") no-repeat center left;
-}
-.icon_wishlist.active {
-  background: url("https://www.forever21.com/images/f21/eu/top_wishlist_select.svg") no-repeat center left;
-  background-size: contain;
-}
-.icon_wishlist_white {
-  background: url("https://www.forever21.com/images/f21/eu/top_wishlist_white.svg") no-repeat center left;
-  width: 25px !important;
-  height: 25px !important; 
-  margin-left: .9em;
-}
-.icon_cart_white {
-  background: url("https://www.forever21.com/images/f21/eu/top_cart_white.svg") no-repeat bottom left;
-  margin-left: .6em;
-  width: 28px !important;
-  height: 25px !important; 
-  opacity: 1 !important;
-}
+		<!-- Change Address S -->
+		<div id="addrlist_slide" class="r_container">
+        <span class="icon_close"></span>
+            <div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+                <!-- Product S -->
+                <div class="container row pt_20">
+                    <div class="ttl_header t_bold pb_10">ADDRESS BOOK</div>
+                    <p class="pb_10"><button onclick="fnOpenAddressPopup('NEW', '')" class="bg_black ws_100 btn_mid" cobrowse="viewonly">+ ADD NEW ADDRESS</button></p>
+                </div>
+                <!-- Product E -->
+                <div id="divAddressList"><!-- Address S -->
+            <div data-index="0" class="b_gray row ws_100 t_mid pa_15 pb_5 select_active mb_10">
+                <div class="col_s_9_of_10 col_m_10_of_12">
+                    <ul class="pb_10">
+                        <li class="t_bold">namhee kim</li>
+                        <li>873A Fulham Rd <br>LONDON,  SW6 5HP</li>
+                        <li>UNITED KINGDOM</li>
+                        <li>TEL: 87354321</li>
+                    </ul>
+            
+                </div>
+                <div class="col_s_1_of_10 col_m_2_of_12 txr">
+                    <input onclick="fnSetAddress('ship', '{c2810014-a1a0-4baf-8db9-9b0adcf96866}');" type="radio" id="address_{c2810014-a1a0-4baf-8db9-9b0adcf96866}" name="address" checked=""><label for="address_{c2810014-a1a0-4baf-8db9-9b0adcf96866}"></label>
+                </div>
+                <div class="ws_100 row txr bt_gray pt_10">
+                    
+                    
+					<span onclick="fnEditAddress('EDIT', '{c2810014-a1a0-4baf-8db9-9b0adcf96866}');"><span class="icon_edit_white fr" data-id="{c2810014-a1a0-4baf-8db9-9b0adcf96866}"></span></span>
+                    
+                </div>
+            </div>
+            <!-- Address E -->
+            <!-- Address S -->
+            <div data-index="1" class="b_gray row ws_100 t_mid pa_15 pb_5 select_inactive mb_10">
+                <div class="col_s_9_of_10 col_m_10_of_12">
+                    <ul class="pb_10">
+                        <li class="t_bold">namhee kim</li>
+                        <li>12 Sokolovská 11<br>Brossard,  186 00</li>
+                        <li>Czechia</li>
+                        <li>TEL: 1234568000</li>
+                    </ul>
+            
+                </div>
+                <div class="col_s_1_of_10 col_m_2_of_12 txr">
+                    <input onclick="fnSetAddress('ship', '{afac1aab-efe1-4d82-9c14-ee13e01e0667}');" type="radio" id="address_{afac1aab-efe1-4d82-9c14-ee13e01e0667}" name="address"><label for="address_{afac1aab-efe1-4d82-9c14-ee13e01e0667}"></label>
+                </div>
+                <div class="ws_100 row txr bt_gray pt_10">
+                    
+                        <span onclick="fnEditAddress('EDIT', '{afac1aab-efe1-4d82-9c14-ee13e01e0667}');"><span class="icon_edit_white" data-id="{afac1aab-efe1-4d82-9c14-ee13e01e0667}"></span></span>
+                        <span onclick="fnRemoveAddress('ship', '{afac1aab-efe1-4d82-9c14-ee13e01e0667}');" class="pl_10"><span class="icon_trash" data-id="{afac1aab-efe1-4d82-9c14-ee13e01e0667}"></span></span>
+                    
+                    
+                </div>
+            </div>
+            <!-- Address E -->
+            <!-- Address S -->
+            <div data-index="2" class="b_gray row ws_100 t_mid pa_15 pb_5 select_inactive mb_10">
+                <div class="col_s_9_of_10 col_m_10_of_12">
+                    <ul class="pb_10">
+                        <li class="t_bold">namhee kim</li>
+                        <li>38A Vesterbrogade <br>København,  1620</li>
+                        <li>Denmark</li>
+                        <li>TEL: 123123123123</li>
+                    </ul>
+            
+                </div>
+                <div class="col_s_1_of_10 col_m_2_of_12 txr">
+                    <input onclick="fnSetAddress('ship', '{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}');" type="radio" id="address_{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}" name="address"><label for="address_{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}"></label>
+                </div>
+                <div class="ws_100 row txr bt_gray pt_10">
+                    
+                        <span onclick="fnEditAddress('EDIT', '{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}');"><span class="icon_edit_white" data-id="{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}"></span></span>
+                        <span onclick="fnRemoveAddress('ship', '{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}');" class="pl_10"><span class="icon_trash" data-id="{4f7c2ba6-a7f8-4e53-82be-8690cef157a8}"></span></span>
+                    
+                    
+                </div>
+            </div>
+            <!-- Address E -->
+            <!-- Address S -->
+            <div data-index="3" class="b_gray row ws_100 t_mid pa_15 pb_5 select_inactive mb_10">
+                <div class="col_s_9_of_10 col_m_10_of_12">
+                    <ul class="pb_10">
+                        <li class="t_bold">namhee kim</li>
+                        <li>Augsburger Str. <br>Stuttgart,  01789</li>
+                        <li>Germany</li>
+                        <li>TEL: 04564649499494</li>
+                    </ul>
+            
+                </div>
+                <div class="col_s_1_of_10 col_m_2_of_12 txr">
+                    <input onclick="fnSetAddress('ship', '{891b8799-454d-47e3-a69c-2f494b2e896a}');" type="radio" id="address_{891b8799-454d-47e3-a69c-2f494b2e896a}" name="address"><label for="address_{891b8799-454d-47e3-a69c-2f494b2e896a}"></label>
+                </div>
+                <div class="ws_100 row txr bt_gray pt_10">
+                    
+                        <span onclick="fnEditAddress('EDIT', '{891b8799-454d-47e3-a69c-2f494b2e896a}');"><span class="icon_edit_white" data-id="{891b8799-454d-47e3-a69c-2f494b2e896a}"></span></span>
+                        <span onclick="fnRemoveAddress('ship', '{891b8799-454d-47e3-a69c-2f494b2e896a}');" class="pl_10"><span class="icon_trash" data-id="{891b8799-454d-47e3-a69c-2f494b2e896a}"></span></span>
+                    
+                    
+                </div>
+            </div>
+            <!-- Address E -->
+            <!-- Address S -->
+            <div data-index="4" class="b_gray row ws_100 t_mid pa_15 pb_5 select_inactive mb_10">
+                <div class="col_s_9_of_10 col_m_10_of_12">
+                    <ul class="pb_10">
+                        <li class="t_bold">namhee kim</li>
+                        <li>augsburger str <br>Berlin,  10789</li>
+                        <li>Germany</li>
+                        <li>TEL: 0269006654</li>
+                    </ul>
+            
+                </div>
+                <div class="col_s_1_of_10 col_m_2_of_12 txr">
+                    <input onclick="fnSetAddress('ship', '{3b117d62-df33-47e6-a375-de1c54479081}');" type="radio" id="address_{3b117d62-df33-47e6-a375-de1c54479081}" name="address"><label for="address_{3b117d62-df33-47e6-a375-de1c54479081}"></label>
+                </div>
+                <div class="ws_100 row txr bt_gray pt_10">
+                    
+                        <span onclick="fnEditAddress('EDIT', '{3b117d62-df33-47e6-a375-de1c54479081}');"><span class="icon_edit_white" data-id="{3b117d62-df33-47e6-a375-de1c54479081}"></span></span>
+                        <span onclick="fnRemoveAddress('ship', '{3b117d62-df33-47e6-a375-de1c54479081}');" class="pl_10"><span class="icon_trash" data-id="{3b117d62-df33-47e6-a375-de1c54479081}"></span></span>
+                    
+                    
+                </div>
+            </div>
+            <!-- Address E -->
+            </div>
+                
+            </div>
+        </div>
+        <!-- Change Address E-->
+        <!-- Quick Slide S -->
+        <div id="quickview_slide" class="r_container"><button class="quick_close" type="button"></button>
+            <div class="quick col_s_9_of_10 col_m_11_of_12 col_l_13_of_16 fc">
+                <!-- Product S -->
+                <div class="container row pt_20 p_left">
+                    <div style="display:none;" class="col_s_10_of_10 col_l_14_of_16"><img id="QuickViewModelImage" src="https://www.forever21.com/images/default_330/00332844-01.jpg"></div>
+                    <div class="col_s_1_of_10 col_m_1_of_12 col_l_2_of_16 pl_10 hide_mobile fr">
+                        <ul id="imageButtonList">
+                            <li id="imageButton_1_front_58" class="active"><a href="javascript:fnShowSelectedImage(0)"><img alt="1_front_58" src="https://www.forever21.com/images/1_front_58/00332844-01.jpg" onerror="fnRemoveDOM('imageButton_1_front_58')"></a></li><li id="imageButton_2_side_58"><a href="javascript:fnShowSelectedImage(1)"><img alt="2_side_58" src="https://www.forever21.com/images/2_side_58/00332844-01.jpg" onerror="fnRemoveDOM('imageButton_2_side_58')"></a></li><li id="imageButton_3_back_58"><a href="javascript:fnShowSelectedImage(2)"><img alt="3_back_58" src="https://www.forever21.com/images/3_back_58/00332844-01.jpg" onerror="fnRemoveDOM('imageButton_3_back_58')"></a></li><li id="imageButton_4_full_58"><a href="javascript:fnShowSelectedImage(3)"><img alt="4_full_58" src="https://www.forever21.com/images/4_full_58/00332844-01.jpg" onerror="fnRemoveDOM('imageButton_4_full_58')"></a></li>
+                        </ul>
+                    </div>
+                    <div id="pic_container" class="col_s_10_of_10 col_m_11_of_12 col_l_14_of_16">
+                        <div class="ws_100 owl-carousel owl-loaded owl-drag" id="pdp_pic"><div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1432px;"><div class="owl-item active" style="width: 355.469px;"><div id="modelImage_1_front_750"><img src="https://www.forever21.com/images/1_front_750/00332844-01.jpg" onerror="fnRemoveDOM('modelImage_1_front_750')"></div></div><div class="owl-item" style="width: 355.469px;"><div id="modelImage_2_side_750"><img src="https://www.forever21.com/images/2_side_750/00332844-01.jpg" onerror="fnRemoveDOM('modelImage_2_side_750')"></div></div><div class="owl-item" style="width: 355.469px;"><div id="modelImage_3_back_750"><img src="https://www.forever21.com/images/3_back_750/00332844-01.jpg" onerror="fnRemoveDOM('modelImage_3_back_750')"></div></div><div class="owl-item" style="width: 355.469px;"><div id="modelImage_4_full_750"><img src="https://www.forever21.com/images/4_full_750/00332844-01.jpg" onerror="fnRemoveDOM('modelImage_4_full_750')"></div></div></div></div><div class="owl-nav"><div class="owl-prev disabled">prev</div><div class="owl-next">next</div></div><div class="owl-dots"><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div><div class="owl-dot"><span></span></div></div></div>
+                        <script type="text/javascript">
+                            $(function () {
+                                $.quickview.data.imageCarousel = $("#pdp_pic").owlCarousel({
+                                    loop: false,
+                                    items: 1,
+                                    nav: true,
+                                    onChanged: callbackOwlCarousel
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!-- Product E -->
+                <!-- Details S -->
+                <div class="container row pt_20 p_right">
+                    <div>
+                        <p class="p_name">Lace-Back Lingerie Cami</p>
+                        <div id="ItemPrice">
+                            <p class="p_price pt_5">€ 14.00</p>
+                        </div>
+                    </div>
+                    <div class="ws_100 swatch row mobile_swatch pt_10">
+                        <ul class="color" id="colorButton">
+                            <li onclick="fnSelectColor(this, '01', '14', '14')"><span class="selected"><img src="https://www.forever21.com/images/sw_22/00332844-01.jpg"></span></li>
+                        </ul>
+                        <p id="selectedColorName" class="pt_5">BLACK</p>
+                        <ul class="pt_10 pb_10 size" id="sizeButton">
+                            <li onclick="fnSelectSize(this, '2', true)"><span class="selected">36-38</span></li><li onclick="fnSelectSize(this, '3', true)"><span>40-42</span></li><li onclick="fnSelectSize(this, '4', true)"><span>44-46</span></li>
+                        </ul>
+            
+                        <fieldset class="pt_5">
+                            <div class="input_label focus">
+                                <!-- QUANTITY S --><div class="select_container"><div class="show_mobile"><label>Quantity</label><select class="ws_100" onchange="fnChangeSelectControl('QUANTITY', this, '{{:value}}', '{{:name}}'); return false;"><option value="">Qty :1</option><option value="1" selected="">Qty :1</option><option value="2">Qty :2</option><option value="3">Qty :3</option><option value="4">Qty :4</option><option value="5">Qty :5</option><option value="6">Qty :6</option><option value="7">Qty :7</option><option value="8">Qty :8</option><option value="9">Qty :9</option><option value="10">Qty :10</option><option value="11">Qty :11</option><option value="12">Qty :12</option><option value="13">Qty :13</option><option value="14">Qty :14</option><option value="15">Qty :15</option><option value="16">Qty :16</option><option value="17">Qty :17</option><option value="18">Qty :18</option><option value="19">Qty :19</option><option value="20">Qty :20</option></select></div><div class="col_m_12_of_12 col_l_16_of_16 txl hide_mobile"><span class="drop_p"><span class="arrow_down ws_100"><label>Quantity</label><p class="pt_10">Qty :1</p></span></span><div class="drop_c b_gray"><dl><dd value="1" onclick="fnChangeSelectControl('QUANTITY', this, '1', 'Qty :1'); return false;"><span class="t_pink">Qty :1</span></dd><dd value="2" onclick="fnChangeSelectControl('QUANTITY', this, '2', 'Qty :2'); return false;"><span>Qty :2</span></dd><dd value="3" onclick="fnChangeSelectControl('QUANTITY', this, '3', 'Qty :3'); return false;"><span>Qty :3</span></dd><dd value="4" onclick="fnChangeSelectControl('QUANTITY', this, '4', 'Qty :4'); return false;"><span>Qty :4</span></dd><dd value="5" onclick="fnChangeSelectControl('QUANTITY', this, '5', 'Qty :5'); return false;"><span>Qty :5</span></dd><dd value="6" onclick="fnChangeSelectControl('QUANTITY', this, '6', 'Qty :6'); return false;"><span>Qty :6</span></dd><dd value="7" onclick="fnChangeSelectControl('QUANTITY', this, '7', 'Qty :7'); return false;"><span>Qty :7</span></dd><dd value="8" onclick="fnChangeSelectControl('QUANTITY', this, '8', 'Qty :8'); return false;"><span>Qty :8</span></dd><dd value="9" onclick="fnChangeSelectControl('QUANTITY', this, '9', 'Qty :9'); return false;"><span>Qty :9</span></dd><dd value="10" onclick="fnChangeSelectControl('QUANTITY', this, '10', 'Qty :10'); return false;"><span>Qty :10</span></dd><dd value="11" onclick="fnChangeSelectControl('QUANTITY', this, '11', 'Qty :11'); return false;"><span>Qty :11</span></dd><dd value="12" onclick="fnChangeSelectControl('QUANTITY', this, '12', 'Qty :12'); return false;"><span>Qty :12</span></dd><dd value="13" onclick="fnChangeSelectControl('QUANTITY', this, '13', 'Qty :13'); return false;"><span>Qty :13</span></dd><dd value="14" onclick="fnChangeSelectControl('QUANTITY', this, '14', 'Qty :14'); return false;"><span>Qty :14</span></dd><dd value="15" onclick="fnChangeSelectControl('QUANTITY', this, '15', 'Qty :15'); return false;"><span>Qty :15</span></dd><dd value="16" onclick="fnChangeSelectControl('QUANTITY', this, '16', 'Qty :16'); return false;"><span>Qty :16</span></dd><dd value="17" onclick="fnChangeSelectControl('QUANTITY', this, '17', 'Qty :17'); return false;"><span>Qty :17</span></dd><dd value="18" onclick="fnChangeSelectControl('QUANTITY', this, '18', 'Qty :18'); return false;"><span>Qty :18</span></dd><dd value="19" onclick="fnChangeSelectControl('QUANTITY', this, '19', 'Qty :19'); return false;"><span>Qty :19</span></dd><dd value="20" onclick="fnChangeSelectControl('QUANTITY', this, '20', 'Qty :20'); return false;"><span>Qty :20</span></dd></dl></div></div><input type="hidden" id="hd_quantity" name="hd_quantity" value=""><input type="hidden" id="hd_quantity_n" name="hd_quantity_n" value=""></div><!-- QUANTITY E -->
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div id="tooltip_size" style="display:none;" class="tooltip row ws_100 "><div id="txt_size-error" class="txc ws_100 pb_10">Please select size</div></div>
+                    <button class="bg_black ws_100 pa_15" onclick="fnUpdateLineItem('466a7c66-e8d4-4f98-ba15-8000dbe10d07', this, 'BASKET');">UPDATE</button>
+                    <p class="pt_20 t_small txc"><a href="javascript:fnRemoveFromCart('466a7c66-e8d4-4f98-ba15-8000dbe10d07', this, 'BASKET');" class="underline">DELETE</a></p>
+                </div>
+                <!-- Details E -->
+            </div>
+        </div>
+		<!-- Quick Slide E -->
+	
+		
+		<!-- 20190219 Carrier Service Point Silde S -->
+		<div class="r_container ">
+			<span class="icon_close"></span>
+			<div class="quick col_s_9_of_10 col_m_11_of_12 col_l_13_of_16 fc">
+				<!-- Title S -->
+				<div class="container row pt_20">
+					<p class="hp_midtitle t_bold pb_10">Carrier Service Point</p>
+					<fieldset style="">
+					<!-- Country S -->
+					<div class="input_label focus">
+						<div class="select_container">
+							<div class="show_mobile select col_s_10_of_10">
+								<label>COUNTRY</label>
+								<select class="ws_100 valid">
+									<option value="">Select</option>
+								</select>
+							</div>
+							<div class="col_m_12_of_12 col_l_16_of_16 txl hide_mobile">
+								<span class="drop_p">
+									<span class="arrow_down ws_100">
+										<label for="ups_hd_country" class="ae-label">COUNTRY</label>
+										<p class="pt_10">Select</p>
+									</span>
+								</span>
+								<div class="drop_c b_gray">
+									<dl>
+										<dd><span>Austria</span></dd>
+										<dd><span>Belgium</span></dd>
+										<dd><span>Denmark</span></dd>
+										<dd><span>Finland</span></dd>
+										<dd><span>France</span></dd>
+										<dd><span>Germany</span></dd>
+										<dd><span>Italy</span></dd>
+										<dd><span>Luxembourg</span></dd>
+										<dd><span>Netherlands</span></dd>
+										<dd><span>Poland</span></dd>
+										<dd><span>Spain</span></dd>
+										<dd><span>Sweden</span></dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Country E -->
+					<!-- Zip Code S -->
+					<div class="input_label focus">
+						<span class="icon_delete" style="display: none;"></span>
+						<input type="text">
+						<label>POSTAL CODE*</label>
+					</div>
+					<!-- Zip Code E -->
+					<!-- City S -->
+					<div id="ups_city_parent" class="input_label focus">
+						<input type="text">
+						<label>CITY*</label>
+					</div>
+					<!-- City E -->
+					<div class="ws_100 row pt_10 pb_20 txc">
+						<button class="bg_black btn_big ws_100 t_bold">Find</button>
+					</div>
+					</fieldset>
+				</div>
+				<!-- Title E -->
+			</div>
 
-.icon_signin {
-  background: url("https://www.forever21.com/images/f21/eu/top_myaccount.svg") no-repeat bottom left;
-  margin-right: 7px;
-}
-.icon_mail {
-  background: url("https://www.forever21.com/images/f21/eu/icon_mail.svg") no-repeat bottom left;
-  margin-right: 5px;
-  width: 18px !important;
-  height:12px !important;
-  float: none !important;
-}
-.icon_share {
-  background: url("https://www.forever21.com/images/f21/eu/icon_share.svg") no-repeat bottom left;
-}
-.icon_video {
-  background: url("https://www.forever21.com/images/f21/eu/icon_video.svg") no-repeat bottom left;
-}
-.icon_gps {
- background: url("https://www.forever21.com/images/f21/eu/icon_gps.svg") no-repeat bottom left;
- width: 25px !important;
- height:25px !important;
-}
-.icon_edit_white {
-  background: url("https://www.forever21.com/images/f21/eu/icon_edit_white.svg") no-repeat bottom left;
-  width: 30px !important;
-  height: 30px !important;
-}
-.icon_tag {
-  background: url("https://www.forever21.com/images/f21/eu/label.svg") no-repeat top left;
-}
-/*span[class^="btn_"] {
-  background: url(/eu/shop/_common/images/icon_round_check.png) no-repeat;
-  width: 25px;
-  height: 25px;
-  float: left;
-  background-size: cover;
-  vertical-align: bottom;
-}
-.btn_uncheck {
-  background-position: 0 0 !important;
-}
-.btn_check {
-  background-position: 0 -30px !important;
-}*/
+		</div>
+		<!-- 20190219 Carrier Service Point Silde E -->
 
-/* ============================== */
-/* New Header Code 4/26/2018      */
-/*================================*/
-.top_new_menu {
-  background: url("/eu/shop/_common/images/top_menu_new_white.svg") no-repeat bottom left;
-  margin-right: 10px !important;
-  margin-left: 0!important;
-  height:32px !important;
-}
-.top_new_account {
-  background: url("/eu/shop/_common/images/top_account_new_white.svg") no-repeat center left;
-}
-.top_new_account.signedin {
-  background: url("/eu/shop/_common/images/top_account_new_yellow.svg") no-repeat center left;
-}
-.top_new_account_black {
-  background: url("/eu/shop/_common/images/top_account_new_black.svg") no-repeat center left;
-}
-.top_new_wishlist {
-  background: url("/eu/shop/_common/images/top_wishlist_new_white.svg") no-repeat center left;
-}
-.top_new_cart {
-  background: url("/eu/shop/_common/images/top_cart_new_white.svg") no-repeat center left;
-}
-.new_search button {
-  position: absolute;
-  width: 38px;
-  height:100%;
-  border-radius: 50%;
-  background: #FFFF00 url("/eu/shop/_common/images/icon_new_search_black.svg") no-repeat center center;
-  background-size: auto;
-  z-index: 8;
-  right:-5px;
-}
-span[class^="flag_"] {
-  margin: 0 !important;
-}
-.flag_us, .top_new_flag_us {
-  background: url("/eu/shop/_common/images/flag_us.svg") no-repeat center left;
-}
-.flag_ca, .top_new_flag_ca {
-  background: url("/eu/shop/_common/images/flag_ca.svg") no-repeat center left;
-}
-.flag_mx, .top_new_flag_mx {
-  background: url("/eu/shop/_common/images/flag_mx.svg") no-repeat center left;
-}
-.flag_eu, .top_new_flag_eu {
-  background: url("/eu/shop/_common/images/flag_eu.svg") no-repeat center left;
-}
-.flag_uk, .top_new_flag_uk {
-  background: url("/eu/shop/_common/images/flag_uk.svg") no-repeat center left;
-}
-.flag_jp, .top_new_flag_jp {
-  background: url("/eu/shop/_common/images/flag_jp.svg") no-repeat center left;
-}
-.flag_kr, .top_new_flag_kr {
-  background: url("/eu/shop/_common/images/flag_kr.svg") no-repeat center left;
-}
-.flag_cn, .top_new_flag_cn {
-  background: url("/eu/shop/_common/images/flag_cn.svg") no-repeat center left;
-}
-.flag_au, .top_new_flag_au {
-  background: url("/eu/shop/_common/images/flag_au.svg") no-repeat center left;
-}
-.flag_nz, .top_new_flag_nz {
-  background: url("/eu/shop/_common/images/flag_nz.svg") no-repeat center left;
-}
-.flag_hk, .top_new_flag_hk {
-  background: url("/eu/shop/_common/images/flag_hk.svg") no-repeat center left;
-}
-.flag_in, .top_new_flag_in {
-  background: url("/eu/shop/_common/images/flag_in.svg") no-repeat center left;
-}
-button.slider_close{
-  position: fixed;
-  width: 50px;
-  height: 49px;
-  background:url("/eu/shop/_common/images/icon_slider_close.svg") no-repeat #000 center center;
-  background-size: auto;
-  left: 320px;
-  border-radius: 0;
-  z-index: 1000000000;
-}
-.d_new_mega_sub th {
-  padding: 5px 20px 5px 0;
-}
 
-/* ============================== */
-/* Form Code                      */
-/*================================*/
-input.add_icon {
-  background: url("https://www.forever21.com/images/f21/eu/top_search.svg") #fff no-repeat center left;
-  background-size: 14px 14px;
-  background-position: 1em .65em;
-  display: block;
-  float: left;
-  width: 100%;
-  padding: .55em;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  border: 0 !important;
-  position: relative;
-  z-index: 5;
-  text-indent: 2em
-}
+		<!-- 20190219 List View Silde S -->
+		<div class="r_container ">
+			<span class="icon_close"></span>
+			<div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+				<!-- Pick up Shop S -->
+				<div class="container row pt_20">
+					<div class="ws_100 row pb_20">
+						<p  class="ttl_header t_bold pb_10 pt_10">Select Alternative Delivery Address</p>
+						<div class="t_mid lh_normal">
+							<ul>
+								<li>Paris,&nbsp;75001,&nbsp;France</li><!-- 20190326 -->
+							</ul>
+						</div>
+					</div>
+					
+				</div>
+				<!-- Pick up Shop E -->
+				<div class="container row">
+					<div class="ttl_header t_bold pb_10">Select a Location</div>
+					<div style="display:none">
+						<!-- Store List S -->
+						<div class="inline ws_100 b_gray pa_15 mb_10">
+							<div class="col_s_1_of_10 fr txr">
+								<input type="radio"><label for="store_8324"></label>
+							</div>
+							<div class="col_s_9_of_10">
+								<div class="ws_100 row">
+									<div class="col_s_9_of_10 t_mid lh_normal">
+										<ul>
+											<li class="ttl_header t_bold pb_10">Baldwin Hills Crenshaw Plaza </li>
+											<li>Great Russell St, Bloomsbury, London WC1B 3DG London</li>
+											<li class="t_mid">(9.83 KM)</li><!-- 20190312 -->
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Store List E -->
+						<!-- Store List S -->
+						<div class="inline ws_100 b_gray pa_15 mb_10">
+							<div class="col_s_2_of_10 fr txr">
+								<input type="radio"><label for="store_8324"></label>
+							</div>
+							<div class="col_s_8_of_10">
+								<div class="ws_100 row">
+									<div class="col_s_9_of_10 t_mid lh_normal">
+										<ul>
+											<li class="ttl_header t_bold pb_10">The Americana at Brand</li>
+											<li>Praed St, Paddington, London W2 1NY London</li>
+											<li class="t_mid">(11.83 KM)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Store List E -->
+						<!-- Store List S -->
+						<div class="inline ws_100 b_gray pa_15 mb_10">
+							<div class="col_s_1_of_10 fr txr">
+								<input type="radio"><label for="store_8324"></label>
+							</div>
+							<div class="col_s_9_of_10">
+								<div class="ws_100 row">
+									<div class="col_s_9_of_10 t_mid lh_normal">
+										<ul>
+											<li class="ttl_header t_bold pb_10">Azalea Shopping Center</li>
+											<li>144-152, Bermondsey St, London SE1 3TQ London</li>
+											<li class="t_mid">(16.83 KM)</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Store List E -->
+					</div>
+					<!-- Error list S -->
+					<div class="container">
+						<p class="t_pink t_mid pb_10">It can not get a list. Please try again.(To change the wording)</p>
+						<div class="ws_100 row pt_20 pb_20 txc">
+							<button class="bg_yellow btn_big ws_100 t_bold">Back</button>
+						</div>
+					</div>
+					<!-- Error list E -->
+				</div>
+			</div>
+		</div>
+		<!-- 20190219 List View Silde E -->
+		<!-- 20190219 Selected Location Silde S -->
+		<div class="r_container">
+			<span class="icon_close"></span>
+			<div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+				<div class="container row pt_20">
+					<p class="hp_midtitle t_bold pt_10">Baldwin Hills Crenshaw Plaza</p><!-- 20190327-->
+					<div class="ws_100 store">
+						<ul class="pt_10 pb_10">
+							<li>Great Russell St, Bloomsbury, WC1B 3DG London</li>
+						</ul>
+						<div class="pt_10 pb_20"><!-- 20190327-->
+							<p class="t_bold pb_5">Contact Info</p>
+							<table class="sizechart no_header ws_100 txc bg_white b_gray pt_10">
+								<tbody>
+									<tr>
+										<td>Monday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Tuesday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Wednesday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Thursday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Friday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Saturday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+									<tr>
+										<td>Sunday </td>
+										<td>10:00AM-9:30PM</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--<div class="ttl_header t_bold pb_5">Selected Location</div>
+					<div class="ws_100 row pb_20">
+						<div class="t_mid lh_normal">
+							<ul>
+								<li class="ttl_header t_bold">Baldwin Hills Crenshaw Plaza</li>
+								<li>Great Russell St, Bloomsbury, London WC1B 3DG London</li>
+							</ul>
+						</div>
+					</div>	
 
-input[type="radio"] + label, input[type="checkbox"] + label {
-  background: url(/eu/shop/_common/images/radiocheck.png) no-repeat top center;
-  background-size: cover;
-  width: 18px;
-  height: 18px;
-  display: inline-block;
-  cursor: pointer;
-  vertical-align: top;
-}
+					
+					<p>You will receive an email to confirm when your parcel has arrived at your collection point.</p>
+					<div class="txlc pb_10 pt_20">
+						<fieldset>
+							<span class="input_label focus">
+								<span class="icon_delete" style=""></span>
+								<input type="text">
+								<label>NAME *</label>
+								<span class="t_small pt_5">The name of recipeint need to be the name of the person collection the parcel, as proof of identity will be required.</span>
+							</span>
+						</fieldset>
+					</div>-->
+					<button class="bg_yellow t_bold ws_100 btn_big">OK</button>
+				</div>
+			</div>
+		</div>
+		<!-- 20190219 Selected Location Silde E -->
+		<!-- Right Slider E -->
 
-.p_next {
-  position: relative;
-  background: url("https://www.forever21.com/images/f21/eu/icon_next.svg") no-repeat center center;
-  background-size: 100%;
-  width: 30px;
-  height:17px;
-  vertical-align: middle;
-}
-.p_prev {
-  position: relative;
-  background: url("https://www.forever21.com/images/f21/eu/icon_prev.svg") no-repeat center center;
-  background-size: 100%;
-  width: 30px;
-  height:17px;
-  vertical-align: middle;
-}
+		<!-- Content S -->
+		<div class="c_container">
+			<div class="mobile_overlay"></div>
+			<header class="subpage">
+				<!-- Pre Header Start -->
+				<!--Sibling Tabs F21 / RR S-->
+				<div class="bg_black container row">
+					<div class="container row fc wmx_1300">
+						<!-- Pre Header S -->
+						<div class="d_new_header container row">
+							<div class="auto">
+								<div class="table sameline">
+									<!-- Hamburger Menu S -->
+									<div class="vm p_relative show_tablecell_mobile show_tablecell_tablet">
+										<span class="top_new_menu"></span>
+									</div>
+									<!-- Hamburger Menu S -->
+									<!-- Logo S -->
+									<div class="clearfix vm">
+										<a href="/eu/shop" class="hide_text" onclick="setShowHP();">
+											Forever21
+											<span class="logo white left"></span>
+										</a>
+									</div>
+									<!-- Logo E -->
+									<!-- Mega Menu S -->
+									<div class="table sameline full t_futura_light hide_tablecell_mobile hide_tablecell_tablet pl_10">
+										<div class="d_new_mega_menu hover_p "><a href="/eu/shop/catalog/category/f21/app-main"><span class="ls_2px">WOMEN</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/f21/women-new-arrivals">New In</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc">Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/activewear">Activewear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/top_bodysuits-bustiers">Bodysuits</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outerwear_coats-and-jackets">Coats + Jackets</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/dress">Dresses</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/top_graphic-tops">Graphic Tops</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/top_blouses-sweatshirts-hoodies">Hoodies + Sweatshirts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/bottom_jeans">Jeans</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/jumpsuit_romper">Jumpsuits + Rompers</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/intimates_loungewear">Lingerie + Sleep</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/bottom_trousers">Pants + Leggings</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/top_blouses-shirts">Shirts + Blouses</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sets">Sets</a></p>
+				</div><div class="vt">
+				<p><a href="/eu/shop/catalog/category/f21/shoes">Shoes</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/bottom_shorts">Shorts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/bottom_skirt">Skirts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/bottom_skort">Skorts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_legwear">Socks + Tights</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_glasses">Sunglasses + Readers</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sweater">Sweaters + Cardigans</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/swimwear">Swimwear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/top_blouses">Tops</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/branded-shop-women-clothing">Online Exclusives</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt wmx_200 fix_img_big"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP WHAT'S HOT</span></p><table><tbody><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/blogger_favourites"><span><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/SHOP-WHATS-BLOGGER-FAVS-WGA.png" alt="Blogger Faves"></span><p class="pt_5">Blogger Faves</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/promo-best-sellers-app"><span><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/SHOP-WHATS-HOT-BEST-SELLERS-ACC.png" alt="Best Sellers"></span><p class="pt_5">Best Sellers</p></a></td>
+				</tr><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/promo-valentines-day-shop"><span><img src="https://www.forever21.com/images/f21/eu/nav/women/20190124/SHOP-WHATS-HOT-Vday-SHOP-WGA.png" alt="The Valentine's Day Shop"></span><p class="pt_5">The Valentine's Day Shop</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/promo-nasa"><span><img src="https://www.forever21.com/images/f21/eu/nav/women/20190128/SHOP-WHATS-HOT-NASA.png" alt="NASA"></span><p class="pt_5">NASA</p></a></td>
+				</tr></tbody></table>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt auto fix_img_small"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">OFFERS</span></p><table>
+				<tbody><tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/OFFERS-SPECIAL-PRICES-WGA.png" alt="Special Prices"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/21_items">Special Prices</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/OFFERS-SALE_EN.png" alt="Sale"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/sale_women">Sale</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/OFFERS-MULTIBUY-WGA.png" alt="Multibuy Offers"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/clothing_multibuys">Multibuy Offers</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/women/20181102/OFFERS-DRESSES-UNDER-WGA.png" alt="Dresses under €18"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/promo-dresses-under-15">Dresses under €18</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/women/20190124/OFFERS-LINGERIE-WGA.png" alt="Lingerie Promotions"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/promo-lingerie-looks">Lingerie Promotions</a></td></tr>
+				</tbody></table>
+				</div>
+				</div></div></div>
+				<div class="d_new_mega_menu hover_p "><a href="/eu/shop/catalog/category/f21/acc"><span class="ls_2px">ACCESSORIES</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/f21/women-new-arrivals-accessories">New In</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_jewellery">Jewellery</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_handbags">Bags</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_beauty">Beauty</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_belts">Belts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_hat">Caps + Hats</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_hair-accessories">Hair Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_home-tech">Home + Tech</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_phone-accessories">Phone Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_scarf_gloves">Scarves + Gloves</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_legwear">Socks + Tights</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/shoes">Shoes</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/acc_glasses">Sunglasses + Readers</a></p>
+				<p><a href="/eu/shop/catalog/giftcard/">Gift Cards</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt wmx_200 fix_img_big"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP WHAT'S HOT</span></p><table><tbody><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/promo-best-sellers-acc"><span><img src="https://www.forever21.com/images/f21/eu/nav/acc/20181102/SHOP-WHATS-HOT-BEST-SELLERS-ACC.png" alt="Best Sellers"></span><p class="pt_5">Best Sellers</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/acc_premium-collection"><span><img src="https://www.forever21.com/images/f21/eu/nav/acc/20181102/SHOP-WHATS-HOT-PREMIUM-COLLECTION-ACC.png" alt="Premium Collection"></span><p class="pt_5">Premium Collection</p></a></td>
+				</tr><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/f21/acc_statement-collection"><span><img src="https://www.forever21.com/images/f21/eu/nav/acc/20181102/SHOP-WHATS-HOT-STATEMENT-ACC.png" alt="Statement Jewellery"></span><p class="pt_5">Statement Jewellery</p></a></td>
+				<td></td>
+				</tr></tbody></table>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt auto fix_img_small"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">OFFERS</span></p><table>
+				<tbody><tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/acc/20181102/OFFERS-SALE_EN.png" alt="Sale"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/f21/sale_acc">Sale</a></td></tr>
+				</tbody></table>
+				</div>
+				</div></div></div>
+				<div class="d_new_mega_menu hover_p "><a href="/eu/shop/catalog/category/plus/plus_size-main"><span class="ls_2px">PLUS&nbsp;+&nbsp;CURVE</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/plus/plus-size-new-arrivals">New In</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-activewear">Activewear</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-bodysuits">Bodysuits</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-dresses">Dresses</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-sweatshirts-hoodies">Hoodies + Sweatshirts</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-bottom-denim">Jeans</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-outerwear">Jackets + Outerwear</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-rompers-jumpsuits">Jumpsuits + Playsuits</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-intimates_loungewear">Lingerie + Sleep</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-bottom-leggings">Pants + Leggings</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-sets">Sets</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-bottom-shorts">Shorts</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-bottom-skirts">Skirts</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-sweater">Sweaters + Cardigans</a></p>
+				</div><div class="vt">
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-swimwear">Swimwear</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-tops-tees">T-Shirts + Vests</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-tops">Tops</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/acc">Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-online-exclusives">Online Exclusives</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-sale">Sale</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt wmx_200 fix_img_big"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP WHAT'S HOT</span></p><table><tbody><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/plus/plus_size-best-sellers"><span><img src="https://www.forever21.com/images/f21/eu/nav/plus/20181102/SHOP-WHATS-HOT-BEST-SELLERS-PLUS.png" alt="Best Sellers"></span><p class="pt_5">Best Sellers</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/plus/blogger_favourites-plus"><span><img src="https://www.forever21.com/images/f21/eu/nav/plus/20181102/SHOP-WHATS-HOT-BLOGGER-FAVS-PLUS.png" alt="Blogger Faves"></span><p class="pt_5">Blogger Faves</p></a></td>
+				</tr><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/plus/promo-valentines-day-shop-plus"><span><img src="https://www.forever21.com/images/f21/eu/nav/plus/20190124/SHOP-WHATS-HOT-Vday-SHOP-PLUS.png" alt="The Valentine's Day Shop"></span><p class="pt_5">The Valentine's Day Shop</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/plus/promo-winter-getaway-plus"><span><img src="https://www.forever21.com/images/f21/eu/nav/plus/20190124/SHOP-WHATS-HOT-WINTER-SUN-PLUS.png" alt="The Winter Sun Edit"></span><p class="pt_5">The Winter Sun Edit</p></a></td>
+				</tr></tbody></table>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt auto fix_img_small"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">OFFERS</span></p><table>
+				<tbody><tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/plus/20180702/Occasion_plus-special-prices.png" alt="Special Prices"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/plus/21_items-plus">Special Prices</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/plus/20181102/OFFERS-SALE_EN.png" alt="Sale"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/plus/plus_size-sale">Sale</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/plus/20181102/OFFERS-MULTIBUY-PLUS.png" alt="Multibuy Offers"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/plus/clothing_multibuys-plus">Multibuy Offers</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/plus/20181102/OFFERS-STYLES-UNDER-PLUS.png" alt="Styles Under €18"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/plus/promo-styles-under-15-18-plus">Styles Under €18</a></td></tr>
+				</tbody></table>
+				</div>
+				</div></div></div>
+				<div class="d_new_mega_menu hover_p "><a href="/eu/shop/catalog/category/21men/mens_main"><span class="ls_2px">MEN</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/21men/mens_new-arrivals">New In</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_accessories">Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_jackets-and-coats">Coats + Jackets</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_sweatshirts_hoodies">Hoodies + Sweatshirts</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_bottoms_denim">Jeans</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_bottoms_trousers-joggers">Joggers</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_bottoms_trousers">Pants</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_sweaters">Sweaters + Cardigans</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_shirts">Shirts + Polos</a></p>
+				<p><a href="/eu/shop/catalog/category/21mens/mens_bottoms_shorts">Shorts</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_tops">Tops</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_tees-tanks-basic">Basic t-shirts</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_tees-tanks-graphic">Graphic Tees</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_tees-tanks-tank">Vests</a></p>
+				</div><div class="vt">
+				<p><a href="/eu/shop/catalog/category/21men/mens_shoes">Shoes</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_swimwear">Swimwear</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_online-exclusives">Online Exclusives</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt wmx_200 fix_img_big"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP WHAT'S HOT</span></p><table><tbody><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/21men/blogger_favourites-men"><span><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/SHOP-WHATS-HOT-BLOGGER-FAVS-MEN.png" alt="Blogger Faves"></span><p class="pt_5">Blogger Faves</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/21men/mens_top-picks"><span><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/SHOP-WHATS-HOT-BEST-SELLERS-MEN.png" alt="Best Sellers"></span><p class="pt_5">Best Sellers</p></a></td>
+				</tr><tr>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/21men/promo-mens-streetwear"><span><img src="https://www.forever21.com/images/f21/eu/nav/men/20181221/SHOP-WHATS-HOT-SPORTS-MEN.PNG" alt="STREET STYLE"></span><p class="pt_5">STREET STYLE</p></a></td>
+				<td class="txc pa_10 pt_5 vt"><a href="/eu/shop/catalog/category/21men/promo-nasa-mens"><span><img src="https://www.forever21.com/images/f21/eu/nav/men/20190124/SHOP-WHATS-HOT-NASA.png" alt="NASA"></span><p class="pt_5">NASA</p></a></td>
+				</tr></tbody></table>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt auto fix_img_small"><p class="mb_10 txl t_futura_bold t_bold ls_2px ttl_header t_black"><span class="bb_black_single">OFFERS</span></p><table>
+				<tbody><tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/OFFERS-SPECIAL-PRICES-MEN.png" alt="Special Prices"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/21men/mens_21_items">Special Prices</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/OFFERS-SALE_EN.png" alt="Sale"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/21men/mens_sale">Sale</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/OFFERS-MULTIBUY-MEN.png" alt="Multibuy Offers"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/21men/clothing_multibuys-men">Multibuy Offers</a></td></tr>
+				<tr><th class="pb_5 pt_5 pr_20"><img src="https://www.forever21.com/images/f21/eu/nav/men/20181102/OFFERS-STYLES-UNDER-MEN.png" alt="Styles Under €18"></th><td class="bb_m_gray pb_0"><a href="/eu/shop/catalog/category/21men/promo-styles-under-15-18-men">Styles Under €18</a></td></tr>
+				</tbody></table>
+				</div>
+				</div></div></div>
+				<div class="d_new_mega_menu hover_p "><a href="/eu/shop/catalog/category/f21/outlet"><span class="ls_2px">OUTLET</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/f21/outlet_dresses">Dresses</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_tops">Tops</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlets_knitwear">Jumpers</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_coats_jackets">Jackets + Outerwear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_trousers">Trousers + Shorts</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet-swimwear">Swimwear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_accessories_shoes">Shoes</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_accessories">Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_sets">Sets</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_sport">Activewear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/outlet_lingerie_sleep">Lingerie + Sleep</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt"><div><span class="auto pl_10 pr_10"><a href="/eu/shop/catalog/category/f21/outlet"><img src="https://www.forever21.com/images/f21/eu/nav/women/20190118/navigation-square-wga_UK.jpg" alt="outlet"></a></span>
+				<span class="auto pl_10 pr_10"><a href="/eu/shop/catalog/category/plus/outlet_plus"><img src="https://www.forever21.com/images/f21/eu/nav/women/20190118/navigation-square-plus_UK.jpg" alt="outlet_plus"></a></span>
+				<span class="auto pl_10 pr_10"><a href="/eu/shop/catalog/category/f21/outlet"><img src="https://www.forever21.com/images/f21/eu/nav/women/20190118/navigation-square-men_UK.jpg" alt="outlet"></a></span>
+				</div></div>
+				</div></div></div>
+				<div class="d_new_mega_menu hover_p m_sale"><a href="/eu/shop/catalog/category/f21/sale"><span class="ls_2px">SALE</span></a><div class="d_new_mega_sub hover_c auto"><div class="ws_100 table"><div class="pa_20 pt_0 pb_0 vt"><p class="mb_10 txl t_futura_bold ls_2px ttl_header t_black"><span class="bb_black_single">SHOP BY CATEGORY</span></p><div class="ws_100 clearfix table"><div class="vt">
+				<p><a href="/eu/shop/catalog/category/f21/sale-newly-added">Just Added</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_women">Women</a></p>
+				<p><a href="/eu/shop/catalog/category/plus/plus_size-sale">Plus</a></p>
+				<p><a href="/eu/shop/catalog/category/21men/mens_sale">Men</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_acc">Accessories</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_shoes">Shoes</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_swimwear">Swimwear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_activewear">Activewear</a></p>
+				<p><a href="/eu/shop/catalog/category/f21/sale_intimates">Lingerie + Sleep</a></p>
+				</div></div>
+				</div>
+				<div class="pa_20 pt_0 pb_0 bl_m_gray vt"><div><span class="auto pl_10 pr_10"><a href="/eu/shop/catalog/category/f21/sale-newly-added"><img src="https://www.forever21.com/images/f21/eu/nav/sale/20180702/banner_newtosale.png" alt="sale-newly-added"></a></span>
+				<span class="auto pl_10 pr_10"><a href="/eu/shop/catalog/category/f21/last-chance-deals"><img src="https://www.forever21.com/images/f21/eu/nav/sale/20180702/banner_lastchance.png" alt="last-chance-deals"></a></span>
+				</div></div>
+				</div></div></div>
+				
+										<div class="menu_cover"></div>
+									</div>
+									<!-- Mega Menu E -->
+								</div>
+							</div>
+							<!-- Search S -->
+							<div class="pl_20 new_search_wrapper">
+								<div class="pr_10 p_relative">
+									<fieldset class="p_relative p_high">
+										<div class="new_search p_relative">
+											<label id="search_placeholder" class="p_absolute t_gray p_high">Search Products</label>
+											<input id="ihKeyword" tabindex="34" type="text" name="q" autocomplete="off" onfocus="fnSearchKeyFocusOn(event)" onfocusout="fnSearchKeyFocusOutDesktop(event)">
+											<button onclick="javascript:fnSearch(); return false;" cobrowse="viewonly"></button>
+										</div>
+									</fieldset>
+									<!-- Search Suggestion S -->
+									<div class="search_suggestion" style="display: none"><div class="suggestion_grid pt_20"><ul></ul><ul class="category-suggest"></ul></div></div>
+									<!-- Search Suggestion E -->
+								</div>
+							</div>
+							<!-- Search E -->
+							<!-- Header Right S -->
+							<div class="p_relative">
+								<div class="table sameline fr">
+									<!-- My Account S -->
+									<div class="vm p_relative">
+										<span class="top_new_account show_desktop signedin" style="cursor: pointer;"></span>
+									</div>
+									<!-- My Account E -->
+									<!-- Wishlist S -->
+									<div class="vm p_relative">
+										<a href="/eu/shop/account/wishlist" class="hide_text">
+											My Wishlist
+											<span class="new_top top_count t_black WishlistCountHeader">4</span>
+											<span class="top_new_wishlist"></span>
+										</a>
+									</div>
+									<!-- Wishlist E -->
+									<!-- Shopping Bag S -->
+									<div class="vm p_relative">
+										<a href="/eu/shop/checkout/basket" class="hide_text">
+											My Cart
+											<span class="new_top top_count t_black BasketCountHeader">3</span>
+											<span class="top_new_cart"></span>
+										</a>
+										<!-- Cart Item Added S -->
+										<div id="CartPopupArea"></div>
+										<!-- Cart Item Added E -->
+									</div>
+									<!-- Shopping Bag E -->
+									<!-- Country Select S -->
+									<div class="vm hide_tablecell_mobile show_tablecell_tablet hover_p">
+										<span class="top_new_flag_eu vb"></span>
+										<div class="new_hover hover_c t_black t_small">
+											<!-- Country List S -->
+											<div class="ls_1px">
+													<div class="pa_5 pl_20 flag_us">
+														<a href="https://www.forever21.com/us/shop?changecountry=US"><span class="pl_20">United States</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_ca">
+														<a href="https://www.forever21.com/ca/shop?changecountry=CA"><span class="pl_20">Canada</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_mx">
+														<a href="https://www.forever21.com/mx/product/main.aspx?br=f21&amp;changecountry=MX"><span class="pl_20">Mexico</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_eu">
+														<a href="https://www.forever21.com/eu/shop?lang=en&amp;changecountry=EU"><span class="pl_20">Europe</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_uk">
+														<a href="https://www.forever21.com/uk/shop?changecountry=UK"><span class="pl_20">United Kingdom</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_jp">
+														<a href="https://www.forever21.co.jp?changecountry=JP"><span class="pl_20">Japan</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_kr">
+														<a href="https://www.forever21.co.kr?changecountry=KR"><span class="pl_20">Korea</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_cn">
+														<a href="https://www.forever21.cn?changecountry=CN"><span class="pl_20">China</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_au">
+														<a href="https://www.forever21.com/gl/shop"><span class="pl_20">Australia</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_nz">
+														<a href="https://www.forever21.com/gl/shop"><span class="pl_20">New Zealand</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_hk">
+														<a href="https://www.forever21.com/gl/shop"><span class="pl_20">Asia Pacific</span></a>
+													</div>
+													<div class="pa_5 pl_20 flag_in">
+														<a href="https://www.forever21.com/in/product/main.aspx?br=f21&amp;changecountry=IN"><span class="pl_20">India</span></a>
+													</div>
+											</div>
+											<!-- Country List E -->
+										</div>
+									</div>
+									<!-- Country Select E -->
+										<!-- Language Selection S -->
+										<div class="vm hide_tablecell_mobile show_tablecell_tablet pr_10 hover_p">
+											<span class="vb arrow_down color_white p_relative t_small pl_10">English</span>
+											<div class="new_hover hover_c t_black t_small">
+												<!-- Language List S -->
+												<div class="ls_1px">
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('de-de');">Deutsch</a>
+														</div>
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('en-ie');">English</a>
+														</div>
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('es-es');">Español</a>
+														</div>
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('fr-fr');">Français</a>
+														</div>
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('it-it');">Italiano</a>
+														</div>
+														<div class="pa_5">
+															<a href="javascript:fnChangeLanguage('nl-nl');">Nederlands</a>
+														</div>
+												</div>
+												<!-- Language List E -->
+											</div>
+										</div>
+										<!-- Language Selection E -->
+								</div>
+							</div>
+							<!-- Header Right E -->
+						</div>
+						<!-- Pre Header E -->
+						<!-- Mobile Search S -->
+						<div class="pa_10 pr_20 pl_20 show_mobile bg_m_gray ws_100 clearfix">
+							<div class="pl_5 pr_0 p_relative mobile_search">
+								<fieldset class="p_relative p_high">
+									<div class="new_search p_relative">
+										<label id="search_placeholder_mobile" class="pa_10 p_absolute t_gray p_high">Search Products</label>
+										<input id="txtBloomreachSearch" tabindex="35" type="text" name="q" autocomplete="off" onfocus="fnSearchKeyFocusOn(event)" onfocusout="fnSearchKeyFocusOutMobile(event)">
+										<button onclick="fnSearch(); return false;" cobrowse="viewonly"></button>
+									</div>
+								</fieldset>
+								<!-- Search Suggestion S -->
+								<div class="search_suggestion search_suggestion_mobile" style="display: none"><div class="suggestion_grid pt_20"><ul></ul><ul class="category-suggest"></ul></div></div>
+								<!-- Search Suggestion E -->
+							</div>
+						</div>
+						<!-- Mobile Search E -->
+					</div>
+				</div>
+				<!-- Pre Header End -->
+			</header>
+			<main role="main">
+				<div class="ws_100 clearfix table sameline"><div class="ws_100 wm_50 txc pa_15 t_trade t_black ls_2px gtm_promo" data-promo-id="SHIPPING_HOMEPAGEBAR_HOMEPAGEBAR" data-promo-name="HOMEPAGE BAR" data-promo-creative-name="20180619_HOMEPAGEBAR" data-promo-position="HOMEPAGE BAR_TOP LEFT" style="background:#eaa2b7;vertical-align: middle;">	
+					<span class="hp_midtitle block"><a data-modal-target="#homepage_disclaimer_g">FREE STANDARD DELIVERY ON ALL ORDERS OVER €60</a></span>
+					<a href="/eu/shop/catalog/category/f21/women-new-arrivals "><span class="t_mid">SHOP NOW</span><br>
+					</a></div><div class="ws_100 wm_50 txc pa_15 t_trade t_black ls_2px show_desktop gtm_promo" data-promo-id="SHIPPING_HOMEPAGEBAR_HOMEPAGEBAR" data-promo-name="HOMEPAGE BAR" data-promo-creative-name="20180619_HOMEPAGEBAR" data-promo-position="HOMEPAGE BAR_TOP RIGHT" style="background:#f6d0db;vertical-align: middle;">	
+					<span class="hp_midtitle block"><a data-modal-target="#homepage_disclaimer_g1">STUDENTS GET 10%* OFF ALL YEAR ROUND! </a></span>
+					<a href="/eu/shop/info/studentbean"><span class="t_mid">SHOP NOW</span><br>
+					</a></div>
+				</div>
+				<!-- Cart Title S -->
+				<div class="bg_light_gray txc t_container">
+					<p class="hp_midtitle t_bold pa_10">CHECKOUT</p>
+					<div class="t_mid pt_5" style="display:none;"><span id="itemCountTop">3</span> Item(s) : Total <span class="t_bold t_black pr_10" id="grandTotalTop">€ 40.00</span> <button id="btnPlaceOrderTop" class="bg_gray btn_small inactive" cobrowse="viewonly">PLACE ORDER</button></div>
+				</div>
+				<!-- Cart Title E -->
+				<div id="main" class="pb_20 mb_10">
+					<!-- Checkout List S -->
+					<div class="container con_container checkout_container">
+						<!-- Checkout S -->
+						<div class="container center_content checkout wmx_950 fc">
+							<!-- Checkout content S -->
+							<div class="col_s_10_of_10 col_m_6_of_12 col_l_9_of_16">
+								<!-- Shipping Address S -->
+								<div class="col_s_10_of_10 col_m_12_of_12 col_l_15_of_16 pb_20">
+									<div class="ttl_header t_bold bb_gray pb_10 pt_10">1. SHIPPING ADDRESS</div>
+									<div id="divNewShipAddress"  style="display:none" class="pt_10 pb_20 hp_subtitle"><button id="btnAddAddress" class="bg_white underline t_bold">+ ADD NEW ADDRESS</button></div>
+									<div id="divCurrentShipAddress" class="pt_10 pb_10 hp_subtitle">
+										<div class="row ws_100 p_relative pb_20 pa_10 pt_5">
+											<p class="p_absolute p_rt"><button id="btnCurrentShipAddrEdit" onclick="fnOpenAddressList('ship');" class="outline btn_small" cobrowse="viewonly">EDIT</button></p>
+											<ul class="lh_normal">
+												<li id="shipAddressUserName" class="t_bold">namhee kim</li>
+												<li id="shipAddressInfo">873A Fulham Rd <br>LONDON,  SW6 5HP</li>
+												<li id="shipAddressCountry">UNITED KINGDOM</li>
+												<li id="shipAddressPhoneNumber">TEL :87354321</li>
+											</ul>
+										</div>
+									</div>
 
-/* ============================== */
-/* PDP Code                       */
-/*================================*/
-.icon_size {
-  background:url("https://www.forever21.com/images/f21/eu/icon_size.svg") no-repeat center left;
-  width: 44px !important;
-  height: 25px !important;
-}
+								</div>
+								<!-- Shipping Address E -->
+								<!-- Shipping Method S -->
+								<div class="col_s_10_of_10 col_m_12_of_12 col_l_15_of_16 pb_20">
+                                    <div class="ttl_header t_bold bb_gray pb_10 t_gray">2. SHIPPING METHOD</div>
+                                    <!-- Ship Type S -->
+                                    <div id="divShippingMethodList" class="pt_5 hp_subtitle" style="">
+                                        <div class="inline ws_100 pa_10 bb_dot">
+                                            <div class="col_s_8_of_10 col_m_8_of_12"><span class="vt t_bold">€ 5.00</span>
+                                                <span class="ws_80 pl_5">
+                                                    <div class="col_s_8_of_10 pl_10">
+                                                        <ul>
+                                                            <li>Carrier Service Point</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="col_s_2_of_10 col_m_4_of_12 txr fr">
+                                                <input type="radio" id="shippingMethod_8a1964ae-5055-4db5-84bf-ce7f94b1e986" name="ship" onclick="fnSetShippingMethod('8a1964ae-5055-4db5-84bf-ce7f94b1e986', 'UPS Access Point', 'ACCESSPOINT');"><label for="shippingMethod_8a1964ae-5055-4db5-84bf-ce7f94b1e986"></label>
+                                            </div>
+                                        </div>
+                                        <!-- Ship Type E -->
+                                        
+                                        <!-- Ship Type S -->
+                                        <div class="inline ws_100 pa_10 bb_dot">
+                                            <div class="col_s_8_of_10 col_m_8_of_12"><span class="vt t_bold">FREE</span>
+                                                <span class="ws_80 pl_5">
+                                                    <div class="col_s_8_of_10 pl_10">
+                                                        <ul>
+                                                            <li>Pick-Up In Store</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="col_s_2_of_10 col_m_4_of_12 txr fr">
+                                                <input type="radio" id="shippingMethod_5172234a-13f7-4dcb-ad0c-366e312c4395" name="ship" onclick="fnSetShippingMethod('5172234a-13f7-4dcb-ad0c-366e312c4395', 'Pick-Up In Store', 'SHIPTOSTORE');"><label for="shippingMethod_5172234a-13f7-4dcb-ad0c-366e312c4395"></label>
+                                            </div>
+                                        </div>
+                                        <!-- Ship Type E -->
+                                        
+                                        <!-- Ship Type S -->
+                                        <div class="inline ws_100 pa_10 bb_dot">
+                                            <div class="col_s_8_of_10 col_m_8_of_12"><span class="vt t_bold">€ 12.00</span>
+                                                <span class="ws_80 pl_5">
+                                                    <div class="col_s_8_of_10 pl_10">
+                                                        <ul>
+                                                            <li>Express</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="col_s_2_of_10 col_m_4_of_12 txr fr">
+                                                <input type="radio" id="shippingMethod_450448ca-1be2-47c5-b1b8-ee06ac1646db" name="ship" onclick="fnSetShippingMethod('450448ca-1be2-47c5-b1b8-ee06ac1646db', 'Express', 'EXPRESS');"><label for="shippingMethod_450448ca-1be2-47c5-b1b8-ee06ac1646db"></label>
+                                            </div>
+                                        </div>
+                                        <!-- Ship Type E -->
+                                        
+                                        <!-- Ship Type S -->
+                                        <div class="inline ws_100 pa_10 bb_dot">
+                                            <div class="col_s_8_of_10 col_m_8_of_12"><span class="vt t_bold">€ 6.00</span>
+                                                <span class="ws_80 pl_5">
+                                                    <div class="col_s_8_of_10 pl_10">
+                                                        <ul>
+                                                            <li>Standard</li>
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </span>
+                                            </div>
+                                            <div class="col_s_2_of_10 col_m_4_of_12 txr fr">
+                                                <input type="radio" id="shippingMethod_74e129a8-8ce4-4db0-97ca-f97643045796" name="ship" onclick="fnSetShippingMethod('74e129a8-8ce4-4db0-97ca-f97643045796', 'Standard', 'STANDARD');" checked=""><label for="shippingMethod_74e129a8-8ce4-4db0-97ca-f97643045796"></label>
+                                            </div>
+                                        </div>
+                                        <!-- Ship Type E -->  
+									</div>
+									<!-- 20190326 Metapack Selected Address S -->
+									<div class="container row">
+										<div class="pt_10 pb_10 hp_subtitle">
+											<div class="row ws_100 p_relative pa_10 pt_5">
+												<p class="p_absolute p_rt"><button class="outline btn_small">EDIT</button></p>
+												<ul class="lh_normal">
+													<li class="t_bold t_black pb_5">Baldwin Hills Crenshaw Plaza</li>
+													<li>GREAT RUSSELL ST, BLOMMSBURY, WC1B 3DG LONDON</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<!-- 20190326 Metapack Selected Address E -->
+								</div>
+								<!-- Shipping Method E -->
+								<!-- Payment S -->
+								<div class="col_s_10_of_10 col_m_12_of_12 col_l_15_of_16 pb_20">
+                                    <div class="ttl_header t_bold bb_gray pb_10 t_gray">3. PAYMENT</div>
+                                    
+                                    <div id="divPaymentMethod" class="pt_5 pb_20 hp_subtitle" style="">
+                                        <div id="divNewPayment" style="" class="ws_100 row">
+                                            <button id="btnAddNewPayment" onclick="fnCreditCardListPopup()" class="bg_pink t_white mt_10 btn_big" cobrowse="viewonly">+ ADD NEW PAYMENT</button>
+                                        </div>
+                                        <div id="divCurrentPayment" class="ws_100 row pt_10" style="">
+                                        </div>
+                                    </div>
+								</div>
+                                <!-- Payment E -->
+                                
+                                <!-- My Bag List S -->
+                                <div class="col_s_10_of_10 col_m_12_of_12 col_l_15_of_16 pa_10 bg_light_gray">
+                                    <div class="ttl_header t_bold pb_10">MY BAG (<span id="lineItemCount">3</span> Qty)</div>
+                                    <div class="container row mybag pa_10 bg_white" style="display:block;">
+                                        <div id="divItemTotalNotice" style="display:none;" class="ws_100 row txc pb_10 t_pink">Maximum 40 quantities allowed, please edit your bag.</div>
+                                        
+                                        <div class="pi_wrapper" id="pi_wrapper">
+                                            <div class="p_item">
+                                                <a href="#">
+                                                    <span class="btn_edit"></span>
+                                                    <img src="https://www.forever21.com/images/default_330/00332844-01.jpg" alt="Lace-Back Lingerie Cami">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="pi_wrapper">
+                                            <div class="p_item">
+                                                <a href="#">
+                                                    <span class="btn_edit"></span>
+                                                    <img src="https://www.forever21.com/images/default_330/00332199-03.jpg" alt="Plus Size Knotted Tee">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="pi_wrapper">
+                                            <div class="p_item">
+                                                <a href="#">
+                                                    <span class="btn_edit"></span>
+                                                    <img src="https://www.forever21.com/images/default_330/00340275-01.jpg" alt="Twisted Tiered Hoop Earrings">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- My Bag List E -->
+							</div>
+							<!-- Checkout content E -->
+							<!-- Checkout Right S -->
+							<div class="col_s_10_of_10 col_m_5_of_12 col_l_6_of_16 fr mt_10">
+								<!-- My Bag List S -->
+								<div class="row ws_100 pb_20" style="display:none">
+									<p class="ttl_header t_bold bb_gray pb_10">MY BAG (1)</p>
+									<div class="mybag pt_10">
+										<div><a href="#"><span class="zoom"></span><img src="http://www.forever21.com/images/default_330/00084912-01.jpg"></a></div>
+									</div>
+								</div>
+								<!-- My Bag List E -->
+								<!-- Summary S -->
+								<div class="col_s_10_of_10 col_m_12_of_12 col_l_15_of_16 pb_20">
+									<p class="ttl_header t_bold bb_gray pb_10">ORDER SUMMARY</p>
+									<div class="summary pt_10 pb_10 clearfix">
+										<ul class="col_s_5_of_5 fl">
+                                            <li>Subtotal</li>
+                                            <li>Discount</li>
+											<li>Tax</li>
+											<li>Shipping</li>
+											<li class="t_bold">TOTAL</li>
+										</ul>
+										<ul class="col_s_5_of_5 fr txr">
+											<li>€ 34.00</li>
+                                            <li>-€ 0.00</li>
+                                            <li>€ 6.00</li>
+											<li>$0.00</li>
+											<li class="t_bold ttl_header">€ 40.00</li>
+										</ul>
+                                    </div>
+                                    
+                                    <!-- Gift Card S -->
+                                    <div class="col_s_10_of_10 col_m_12_of_12 col_l_16_of_16 pt_10">
+                                        <div class="t_mid t_bold expand_p cursor"><span>GIFT/E-GIFT/STORE CREDIT</span></div>
+                                        <div class="expand_c pa_0" style="display: none;">
+                                            <fieldset>
+                                                <span class="input_label ws_50 pr_10">
+                                                    <input id="txtGiftCardNumber" type="tel" maxlength="20" tabindex="36">
+                                                    <label>CARD NUMBER</label>
+                                                </span>
+                                                <span class="input_label ws_50 fr">
+                                                    <button id="btnAddGiftCard" class="bg_black btn_small inline fr" onclick="fnAddGiftCard();" cobrowse="viewonly">APPLY</button>
+                                                    <input id="txtPassNumber" type="tel" maxlength="8" tabindex="37">
+                                                    <label>PIN NUMBER</label>
+                                                </span>
+                                            </fieldset>
+                                            <div class="tooltip pt_0"></div>
+                                        </div>
+                
+                                        <div id="divGiftCardInfo" class="container row" style="display:none;">
+                                        </div>
+                                    </div>
+                                    <!-- Gift Card E -->
+                                    <!-- Promotion S -->
+                                    <div id="divPromoAreaGrey" class="ws_100 row bt_gray" style="display: none;">
+                                        <div class="t_bold t_mid t_gray pt_10">
+                                            <span>PROMOTION CODE</span>
+                                        </div>
+                                    </div>
+                                    <div id="divPromoArea" style="" class="ws_100 row bt_gray">
+                                        <div class="t_bold t_mid expand_p">
+                                            <span>PROMOTION CODE</span>
+                                        </div>
+                                        <div class="expand_c pt_0" style="display: none;">
+                                            <fieldset>
+                                                <span class="input_label">
+                                                    <button id="btnPromoApply" class="bg_black btn_small inline fr">APPLY</button>
+                                                    <input id="txt_promoCode" type="text" maxlength="20" tabindex="38">
+                                                    <label>PROMOTION CODE</label>
+                                                    <span class="tooltip" style="display: none;">Invalid code</span>
+                                                </span>
+                                            </fieldset>
+                                        </div>
+                                        <div id="divPromoInfo" class="container row bg_light_gray pa_10 t_small" style="display:none;">
+                                            <span class="t_pink" id="spanPromoName"></span> <a href="javascript:fnRemovePromoCode();"><span class="underline fr">remove</span></a>
+                                        </div>
+                                    </div>
+									<!-- Promotion E -->
+									<!-- 20190410 Optional S -->
+									<div class="ws_100 row pa_15 pt_5 b_gray">
+										<div class="divided_line ttl_header txc t_dark"><span><strong>OPTINAL</strong></span></div>
+										<p class="t_bold pb_10 pt_20">CHECKOUT FASTER NEXT TIME</p>
+										<p class="pb_10 t_mid t_gray">Create an account by entering a password and clicking place order to take advantage of faster and easier shopping.</p>
+										<fieldset class="pb_15">
+											<span class="input_label ">
+												<button type="button" class="bg_white t_small inline fr underline c_wm_20">SHOW</button>
+												<input type="password">
+												<label for="txt_pwd">PASSWORD</label>
+											</span>
+											<span class="input_label">
+												<span class="icon_delete" style="display: none;"></span>
+												<input type="password">
+												<label for="txt_pwd_cnfm">CONFIRM PASSWORD</label>
+											</span>
+										</fieldset>
+										<div class="txl container clearfix bg_light_gray pa_20">
+											<p class="t_bold t_gray pb_10 t_small">MARKETING EMAIL PREFERENCE</p>
+											<div class="pr_10 col_s_1_of_10">
+												<input type="checkbox">
+												<label for="exclusive" class="hide_text">Sign me up checkbox</label>
+											</div>
+											<div class="t_mid t_gray col_s_9_of_10">Please sign me up to the latest fashion news and exclusive offers (we won’t spam or sell your email… and you can unsubscribe at any time!)</div>
+										</div>
+									</div>
+									<!-- 20190410 Optional E -->
 
-.star_full {
-  background:url("/eu/shop/_common/images/star_full.png") no-repeat center center;
-}
-.star_half {
-  background:url("/eu/shop/_common/images/star_half.png") no-repeat center center;
-}
-.star_no {
-  background:url("/eu/shop/_common/images/star_noscore.png") no-repeat center center;
-}
+                                    <div class="ws_100 row pt_15">
+                                        <button class="bg_gray btn_big inactive">Place Order</button>
+                                    </div>
+									
+								</div>
+								<!-- Summary E -->
+							</div>
+							<!-- Checkout Right E -->
+						</div>
+						<!-- Checkout E -->
+					</div>
+					<!-- Checkout List S -->
+				</div>
+				<div class="container row txc pa_20"><a href="#" class="scrollToTop t_bold"><span class="underline">Back to top</span></a></div>
+			</main>
 
-/* ============================== */
-/* Footer Code                    */
-/*================================*/
-span[class^="fa_"]{
-  display: inline-block;
-  position: relative;
-  background: url("/eu/shop/_common/images/icon_apps.png") no-repeat bottom right;
-  background-size: 100%;
-  width: 96px;
-  height: 33px;
-  vertical-align: middle;
-}
-
-/* ============================== */
-/* Social Code                    */
-/*================================*/
-span[class^="fs_"]{
-  display: inline-block;
-  position: relative;
-  background: url("/eu/shop/_common/images/icon_social.png") no-repeat bottom right;
-  background-size: 100%;
-  width: 24px;
-  height: 26px;
-  vertical-align: middle;
-  margin: 0 .5em;
-}
-
-/* ============================== */
-/* Dropdown Code                  */
-/*================================*/
-/*.arrow_down:before {
-  content:"";
-  position: absolute;
-  right: 0px;
-  bottom: 16px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 5px 4px 0 4px;
-  border-color: #fff transparent transparent transparent;
-  line-height: 0;
-  _border-color: #fff #fff #fff #fff;
-  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
-  z-index:9;
-}*/
-.arrow_down:after {
-  /*content: "";
-  background: url("/eu/shop/_common/images/icon_down.svg") no-repeat center center;
-  background-size: contain;
-  background-position: 50%;
-  padding: 5px 6px;
-  margin: 0 5px;
-  width: 15px;
-  height: 20px;*/
-  content: '';
-  position: absolute;
-  right: -16px;
-  bottom: 5px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 5px 4px 0 4px;
-  border-color: #727272 transparent transparent transparent;
-  line-height: 0;
-  _border-color: #727272 #fff #fff #fff;
-  _filter: progid:DXImageTransform.Microsoft.Chroma(color='#ffffff');
-}
-.arrow_down.white:after {
-  background: url("https://www.forever21.com/images/f21/eu/icon_down_white.svg") no-repeat center center;
-}
-
-/* ============================== */
-/* Checkout Code                  */
-/*================================*/
-.icon_delete {
-  position: absolute;
-  background:url("https://www.forever21.com/images/f21/eu/icon_delete.svg") no-repeat center center #fff;
-  top: 3px;
-  right: 0;
-  width: 17px !important;
-  height: 17px !important;
-  opacity: 0.6 !important;
-  z-index: 99;
-}
-.icon_trash {
-  background:url("https://www.forever21.com/images/f21/eu/icon_trash.svg") no-repeat center center;
-  width: 30px !important;
-  height: 30px !important;
-}
-.icon_question {
-  position: absolute;
-  display: inline-block;
-  background:url("https://www.forever21.com/images/f21/eu/icon_question.svg") no-repeat center center #fff;
-  top: 13px;
-  right: 10px;
-  width: 17px !important;
-  height: 17px !important;
-  opacity: 0.6 !important;
-  z-index: 99;
-}
-.checkout select, .quick select, .select.show_mobile select, .set_item select{
-  text-indent: 0;
-  padding: 10px 0;
-  background: url("https://www.forever21.com/images/f21/eu/icon_down.svg") no-repeat 96% 50%;
-  background-size: 13px;
-  float: left;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-}
-.checkout select {
-  width: 50%;
-  padding: 1.1em 0;
-  background: url("https://www.forever21.com/images/f21/eu/icon_down.svg") no-repeat 100% 50%;
-  background-size: 11px;
-  border-bottom: 1px dotted #ddd;
-}
-
-.i_question {
-  background: url(/eu/shop/_common/images/icon_common_question_mark.png) no-repeat center center;
-  background-size: cover;
-  width: 15px;
-  height: 15px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5px;
-}
-.btn_edit:before {
-  content: "";
-  position: absolute;
-  background: url("https://www.forever21.com/images/f21/eu/icon_edit.svg") no-repeat center center;
-  background-size: contain;
-  width: 20px;
-  height:20px;
-  z-index: 9;
-  top: 2px;
-  right: 2px;
-}
-span[class^="c_card_"] {
-  display: inline-block;
-  width: 100%;
-  max-width: 39px;
-  min-width: 33px;
-  height: 26px;
-  vertical-align: middle;
-  background-size: contain;
-}
-span[class^="c_card_"].small {
-  width: 25px;
-  height: 16px;
-}
-.c_card_card {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_card.svg") no-repeat center left;
-}
-.c_card_f21 {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_f21.svg") no-repeat center left;
-}
-.c_card_paypal {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_paypal.svg") no-repeat center left;
-}
-.c_card_visa {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_visa.svg") no-repeat center left;
-}
-.c_card_discover {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_discover.svg") no-repeat center left;
-}
-.c_card_master {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_master.svg") no-repeat center left;
-}
-.c_card_amex {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_amex.svg") no-repeat center left;
-}
-.c_card_ideal {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_ideal.svg") no-repeat center left;
-}
-.c_card_maestro {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_maestro.svg") no-repeat center left;
-}
-.c_card_sofort {
-  background: url("https://www.forever21.com/images/f21/eu/icon_card_sofort.svg") no-repeat center left;
-}
-/* ============================== */
-/* Signup Code                    */
-/*================================*/
-.signup_slider {
-  background: #f4dadb no-repeat bottom left;
-  padding: 1em;
-  display: inline-block;
-  position: relative;
-  margin-bottom: -5px;
-  background-size: contain;
-}
-
-/* ============================== */
-/* Modal Popup Code               */
-/*================================*/
-.quick_close {
-  background: url("/eu/shop/_common/images/icon_close.png") no-repeat center center;
-  background-size: 80%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  padding: 0;
-  z-index: 999;
-  
-}
-.quick_close.big {
-  background-color: #fff;
-  width: 30px;
-  height: 30px;
-  background-size: 50%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
-.cookies_bg {
-  background: #000000;
-  width:100%;
-}
-.select_lang {
-  padding: 10px 50px 10px 10px;
-}
-.select_lang.arrow_down:after {
-  right: 8px;
-  bottom: 14px;
-}
-.cookies_bg .m_sortfiler>div {
-  border: 0;
-  padding: 0;
-}
-.cookies_bg .m_sortfiler>div > p {
-  padding-top: 10px !important;
-}
-.cookies_bg .drop_c {
-  color: #000000;
-}
-.cookie .icon_close {
-  top: 12px;
-  right: 35px;
-  z-index: 999;
-  font-size: 1.1em;
-}
-.cookie {
-  padding: 1.1em;
-}
-
-/* ============================== */
-/* Owl Carousel Code              */
-/*================================*/
-.owl-nav > div[class*="owl-"] {
-  position: absolute;
-  width: 2.2em;
-  height: 2.2em;
-  background-size: 100%;
-  color: transparent;
-  top: 41%;
-  opacity: .8;
-}
-.owl-next {
-  right: 1em;
-  background: url("https://www.forever21.com/images/f21/eu/icon_next.svg") no-repeat center center;
-}
-.owl-prev {
-  left: 1em;
-  background: url("https://www.forever21.com/images/f21/eu/icon_prev.svg") no-repeat center center;
-  margin-left: 0;
-}
-.owl-item.loading {
-  min-height: 150px;
-  background: url("/eu/shop/_common/images/loading.gif") no-repeat center center;
-}
-
-/* ============================== */
-/* F21 Credit Card                */
-/*================================*/
-
-.f21_card {
-  background: #fadbf0;
-}
-
-/* ============================== */
-/* Mobile Left Menu               */
-/*================================*/
-.mega_menu.first_menu > span:after {
-  content:"" !important;
-  width: 11px;
-  height: 13px;
-  background: url("https://www.forever21.com/images/f21/eu/icon_arrow_right.svg") no-repeat center right;
-  right: 21px;
-  background-size: contain;
-}
-
-.go_back:before {
-  position: absolute;
-  content:"" !important;
-  width: 11px;
-  height: 15px;
-  background: url("https://www.forever21.com/images/f21/eu/icon_back_white.svg") no-repeat center left;
-  left: 15px;
-  background-size: contain;
-}
-
-.swatch .color li span.oos:after, .drop_c.open dd span.oos:after {
-  content: "";
-  position: absolute;
-  background: url("https://www.forever21.com/images/f21/eu/so_line.svg") no-repeat;
-  width: 27px;
-  height: 27px;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  opacity: .5;
-  background-position: 100% 100%;
-}
-.swatch.round .color li span.oos:after{
-  width: 23px;
-  height: 23px;
-}
-
-.logo_paypal {
-  display: inline-block;
-  position: relative;
-  background: url("https://www.forever21.com/images/f21/eu/logo_paypal.svg") no-repeat center center;
-  background-size: 100%;
-  width: 85px;
-  height: 55px;
-}
-[class^="processing_"] {
-  display: inline-block;
-  position: relative;
-  background-size: 100% !important;
-  width: 40px;
-  height: 20px;
-}
-.processing_l {
-  background: url("https://www.forever21.com/images/f21/eu/gui_arrow.gif") no-repeat center center;
-  
-}
-.processing_r {
-  background: url("https://www.forever21.com/images/f21/eu/gui_arrow_r.gif") no-repeat center center;
-}
-
-@media (min-device-width:320px) and (max-device-width:767px) {
-  .pdp_container .swatch .color li span.oos:after {
-    width: 33px;
-    height: 33px;
-    background-position: 45% 50%;
-    left:0;
-    top:0;
-  }
-}
-/* ============================== */
-/* Small Desktop Code             */
-/*================================*/
-@media (min-width:768px) {
-  /* ============================== */
-  /* Quick View Code                */
-  /*================================*/
-  .zoom {
-    display: none;
-    position: absolute;
-    z-index: 5;
-    top:45%;
-    left:45%;
-    background:url("https://www.forever21.com/images/f21/eu/icon_zoom.svg") no-repeat center center;
-    background-size: contain;
-    width:35px;
-    height:35px;
-    cursor: pointer;
-   }
-   .p_zoomin .zoom {
-    width: 40px;
-    height:40px;
-    left:47%;
-    top:45%;
-   }
-  /* ============================== */
-  /* Checkout Code                  */
-  /*================================*/
-  #account {
-      background:url("/eu/shop/_common/images/bg_account.jpg") no-repeat #f69ba9 left top;
-      background-position: 0 0;
-      background-size: contain;
-      padding: 6.5em 0;
-  }
-  /* ============================== */
-  /* F21 Credit Card                */
-  /*================================*/
-  .f21_money, .f21_crown, .f21_kit, .f21_bday, .f21_double, .f21_anni, .f21_exclusive, .f21_firstpurchase, .f21_3point, .f21_2point, .f21_1point, .f21_check {
-    background: url(/eu/shop/_common/images/f21card/f21_cc_icons.png) no-repeat;
-    background-size: 100%;
-  }
-  .f21_card {
-    background: url("/eu/shop/_common/images/f21_cc_pic.jpg") no-repeat #fadbf0;
-    background-position:90% 20%;
-    background-size:contain;
-  }
-
-  .lang_bg {
-    background:url("https://www.forever21.com/eu/shop/_common/images/en/eu_lang_bg.jpg") #D1E6E4 no-repeat left center;
-    width:760px;
-    height:480px;
-  }
-  /* ============================== */
-  /* Cookies Popup                  */
-  /*================================*/
-  .select_lang {
-    padding: 7px 40px 7px 10px;
-  }
-  .select_lang.arrow_down:after {
-    right: 8px;
-    bottom: 11px;
-  }
-  .cookies_bg .m_sortfiler>div > p {
-    padding-top: 5px !important;
-  }
-  .cookies_bg .m_sortfiler .drop_c {
-    top: 29px;
-    margin-left: -5px;
-  }
-  .cookies_bg dd {
-    line-height: 220%;
-  }
-}
+			<footer class="bg_light_gray">
+				<!-- Footer S -->
+				<div class="container row">
+					<!-- Subscribe S -->
+					<div class="col_s_9_of_10 col_m_10_of_16 fc txc">
+						<div class="subscription">
+							<p class="hp_title">Fear of missing out?</p>
+							<p class="show_desktop hp_subtitle pt_10">Be the first to know about the latest deals, style updates & more!</p>
+							<h5 class="hp_subtitle show_mobile pt_10">Sign up and be the first to know!</h5>
+							<div class="col_s_10_10 col_m_8_of_12 col_l_8_of_16 wmx_500 fc pt_10">
+								<form>
+									<fieldset class="f_form m_f_form">
+										<div class="input_label">
+											<label>EMAIL ADDRESS</label>
+											<button class="bg_black ws_20 round_nl">Join</button>
+											<input type="email" class="ws_80 round_nr" name="email address">
+										</div>
+										<p class="tooltip">The email address is already exist</p>
+									</fieldset>
+									<p class="t_res t_gray pt_10">By clicking join, I accept the <a href="#" class="underline">Privacy Policy</a> and <a href="#" class="underline">Terms & Conditions</a>.You may unsubscribe at any time.</p>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- Subscribe E -->
+					<!-- Footer Navigation S -->
+					<div class="show_desktop">
+						<div class="col_m_10_of_12 fc txc">
+							<ul>
+								<li>
+									<dl>
+										<dt>Comapny Info</dt>
+										<dd><a href="#">About Us</a></dd>
+										<dd><a href="#">Careers</a></dd>
+										<dd><a href="#">Social Responsibility</a></dd>
+										<dd><a href="#">Affiliate Program</a></dd>
+										<dd><a href="#">Business With Us</a></dd>
+										<dd><a href="#">Newsroom</a></dd>
+										<dd><a href="#">Find a store</a></dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>Help</dt>
+										<dd><a href="#">Contact Us</a></dd>
+										<dd><a href="#">Order Status</a></dd>
+										<dd><a href="#">Shipping Info.</a></dd>
+										<dd><a href="#">Returns</a></dd>
+										<dd><a href="#">Size Guide</a></dd>
+										<dd><a href="#">FAQ</a></dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>Quick Llinks</dt>
+										<dd><a href="#">Gift Cards</a></dd>
+										<dd><a href="#">F21 Red</a></dd>
+										<dd><a href="#">Privacy Policy</a></dd>
+										<dd><a href="#">Terms & Conditions</a></dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt>Forever Rewarded</dt>
+										<dd><a href="#">Apply Now</a></dd>
+										<dd><a href="#">Card Benefit</a></dd>
+										<dd><a href="#">Manage Account</a></dd>
+										<dd class="pl_10 t_gray"><a href="#">- Forever 21 Credit Card</a></dd>
+										<dd class="pl_10 t_gray"><a href="#">- Forever 21 VISA Credit Card</a></dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- Footer Navigation E -->
+					<!-- Footer Social S -->
+					<div class="col_s_10_of_10 social_container">
+						<span><a href="#"><span class="fs_instagram"></span></a></span>
+						<span><a href="#"><span class="fs_facebook"></span></a></span>
+						<span><a href="#"><span class="fs_twitter"></span></a></span>
+						<span><a href="#"><span class="fs_youtube"></span></a></span>
+						<span><a href="#"><span class="fs_pinterest"></span></a></span>
+						<span><a href="#"><span class="fs_google"></span></a></span>
+						<!-- App Icon S -->
+						<span class="show_desktop"><a href="https://itunes.apple.com/us/app/forever-21/id365886172?mt=8" target="_blank"><span class="fa_ios"></span></a></span>
+						<span class="show_desktop"><a href="https://play.google.com/store/apps/details?id=com.rarewire.forever21&amp;hl=en" target="_blank"><span class="fa_android"></span></a></span>
+						<!-- App Icon E -->
+					</div>
+						<!-- Footer Social E -->
+					<div class="col_s_10_of_10 txc t_res"><p>© <script>document.write((new Date()).getFullYear());</script> Forever21.inc All rights reserved.</p></div>
+					<!-- Footer Social E -->
+				</div>
+				<!-- Footer S -->
+			</footer>
+		</div>
+		<!-- Content E -->
+	</body>
+</html>
