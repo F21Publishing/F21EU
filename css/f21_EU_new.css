@@ -1,7 +1,8 @@
 /*
-  * Forever21 EU v1.1.1 4/10/2019 - Version 1
+  * Forever21 EU v1.1.1 7/6/2018 - Version 1
   * Copyright Forever21
-  * Updated by Namhee Kim
+  * Created by Elisha Lee
+  * Updated by Joanne Kim
 */
 /*#taco *,#taco body,#taco button,#taco a {
   cursor: url("/eu/shop/_common/images/TacoCursor.cur"), auto !important;
@@ -724,10 +725,7 @@ span[class^="c_card_"].small {
 .processing_r {
   background: url("https://www.forever21.com/images/f21/eu/gui_arrow_r.gif") no-repeat center center;
 }
-.c_wm_20 {
-  width: 20% !important;
-  padding:0.8em !important;
-}
+
 @media (min-device-width:320px) and (max-device-width:767px) {
   .pdp_container .swatch .color li span.oos:after {
     width: 33px;
