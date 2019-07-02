@@ -1577,5 +1577,114 @@
 			</footer>
 		</div>
 		<!-- Content E -->
+
+		<!-- 20190702 PAYMENT TYPE S -->
+		<div id="creditcardlist_slide" class="r_container open">
+			<span class="icon_close"></span>
+	<div class="quick col_s_9_of_10 col_m_10_of_12 col_l_13_of_16 fc">
+	
+		<!-- Payment S -->
+		<div class="container row pt_20">
+			<div class="ws_100 row ttl_header t_bold pb_10">1. PAYMENT TYPE</div>
+			<p class="t_small t_gray clearfix pb_5">Please select payment type to continue.</p>
+			<div class="ws_100 row pb_20">
+				<!-- Payment List S -->
+				<!-- Type Credit Card S -->
+				<div class="inline ws_100 bb_dot pt_10 pb_10">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_card"></span></span>
+						<span class="s_type vt pt_5">Credit Card</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio" name="paymentType" onclick="fnSelectPaymentType('CC');" id="payment_cc" tabindex="17" data-ae-group-label="paymentType" class="ae-checkable-group" data-ae-blurbtype="checkable-group" data-ae-group-name="paymentType" data-ae-form-field="true"><label for="payment_cc" class="ae-label"></label>
+					</div>
+				</div>
+				<div class="inline ws_100 bb_dot pt_10 pb_10" style="display:none;">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_f21"></span></span>
+						<span class="s_type vt pt_5">F21 Credit Card</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio" name="paymentType" onclick="fnSelectPaymentType('F21CC');" id="payment_f21cc" tabindex="18" data-ae-form-field="true"><label for="payment_f21cc" class="ae-label"></label>
+					</div>
+				</div>
+				<!-- Type Credit Card E -->
+				<!-- Type Paypal S -->
+				<div class="inline ws_100 bb_dot pt_10 pb_10" id="pp_method">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_paypal"></span></span>
+						<span class="s_type vt pt_5">PayPal</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio" name="paymentType" onclick="fnSelectPaymentType('PP');" id="payment_pp" tabindex="19" data-ae-form-field="true"><label for="payment_pp" class="ae-label"></label>
+					</div>
+				</div>
+				<!-- Type Paypal E -->
+				<!-- Type BT S -->
+				<div class="inline ws_100 bb_dot pt_10 pb_10" id="bt_method">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_ideal"></span></span>
+						<span class="s_type vt pt_5">iDEAL</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio" name="paymentType" onclick="fnSelectPaymentType('BT');" id="payment_bt" tabindex="20" data-ae-form-field="true"><label for="payment_bt" class="ae-label"></label>
+					</div>
+				</div>
+				<!-- Type BT E -->
+				<!-- 20190702 Type Klarna S -->
+				<div class="inline ws_100 bb_dot pt_10 pb_10">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_klarna"></span></span>
+						<span class="s_type vt pt_5">KLARNA</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio"><label></label>
+					</div>
+				</div>
+				<!-- 20190702 Type Klarna E -->
+				<!-- Type BT S 
+				<div class="inline ws_100 bb_dot pt_10 pb_10" id="sf_method">
+					<div class="col_s_8_of_10 col_m_8_of_12">
+						<span class="c_price"><span class="c_card_sofort"></span></span>
+						<span class="s_type vt pt_5">SOFORT</span>
+					</div>
+					<div class="col_s_2_of_10 col_m_4_of_12 txr fr pt_5">
+						<input type="radio" name="paymentType" onclick="fnSelectPaymentType('SF');" id="payment_sf" tabindex="21" data-ae-form-field="true"><label for="payment_sf" class="ae-label"></label>
+					</div>
+				</div>
+				 Type BT E -->
+				<!-- Payment List E -->
+			</div>
+			<div id="divAddCreditCard" class="ws_100 row" style="display:none;">
+				<div class="ttl_header t_bold pb_10 pt_20">2. CREDIT CARD</div>
+				<p class="pb_10"><button onclick="fnSelectPaymentType('NEW');" class="bg_black btn_mid ws_100 ae-button" cobrowse="viewonly" data-ae-blurbtype="button" data-ae-form-field="true">+ ADD NEW CREDIT CARD</button></p>
+			</div>
+			<div id="divCreditCardList">
+			</div>
+			<div id="divBillingAddressTitle" style="display:none;">
+				<div class="ttl_header t_bold pb_10 pt_20">2. BILLING ADDRESS</div>
+				
+				<div id="divBillingAddressList"></div>
+				
+				<!-- Dropdown S -->
+				<div class="ws_100 row p_relative txl mb_10 pa_10 b_gray">
+					<span class="drop_p ws_100 cursor g_dropdown">
+						<span class="s_dropdown arrow_down ws_100">Select or add address</span>
+						<div class="drop_c b_gray ws_100">
+							<!-- Add New S -->
+							<p class="ws_100 pt_5 pb_10 mb_10"><a id="btnAddNewBillingAddress" class="block pl_5 t_bold" onclick="fnSlidePopup('#creditcardlist_slide', 'close'); fnOpenAddressPopup('NEW', '', 'bill');" aria-label="View more colors">+ ADD NEW ADDRESS</a></p>
+							<!-- Add New E -->
+							<div id="divShippingAddressList" class="clearfix"></div>
+						</div>
+					</span>
+				</div>
+				<!-- Dropdown E -->
+				
+			</div>
+		</div>
+		<!-- Payment E -->
+	</div>
+		</div>
+		<!-- 20190702 PAYMENT TYPE E -->
 	</body>
 </html>

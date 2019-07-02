@@ -1,8 +1,7 @@
 /*
-  * Forever21 EU v1.1.1 7/6/2018 - Version 1
+  * Forever21 EU v1.1.1 07/02/2019 - Version 1
   * Copyright Forever21
-  * Created by Elisha Lee
-  * Updated by Joanne Kim
+  * Created by Namhee & Eve Chen
 */
 /*#taco *,#taco body,#taco button,#taco a {
   cursor: url("/eu/shop/_common/images/TacoCursor.cur"), auto !important;
@@ -560,6 +559,9 @@ span[class^="c_card_"].small {
 .c_card_sofort {
   background: url("https://www.forever21.com/images/f21/eu/icon_card_sofort.svg") no-repeat center left;
 }
+.c_card_klarna {
+  background: url("https://www.forever21.com/images/f21/eu/icon_card_klarna.svg") no-repeat center left;
+}
 /* ============================== */
 /* Signup Code                    */
 /*================================*/
@@ -724,6 +726,17 @@ span[class^="c_card_"].small {
 }
 .processing_r {
   background: url("https://www.forever21.com/images/f21/eu/gui_arrow_r.gif") no-repeat center center;
+}
+
+.setting {
+  background: url('/eu/shop/_common/images/setting.png') no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 3px;
+  width: 13px;
+  height: 13px;
+  cursor: pointer
 }
 
 @media (min-device-width:320px) and (max-device-width:767px) {
